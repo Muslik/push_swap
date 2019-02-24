@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:54:19 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/24 23:10:05 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/25 01:25:20 by Dzhab            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int		ft_handle(t_stack *stacks, char *line, int flags)
 		ft_rrb(stacks, flags);
 	else if (ft_strequ("rrr", line))
 		ft_rrr(stacks, flags);
+	else
+		ft_args_error();
 	return (0);
 }
 
@@ -77,37 +79,6 @@ static	void	ft_get_flags(int *ac, char ***av, int *flags)
     }
 }
 
-void	ft_printer(t_stack *stacks)
-{
-	int i = stacks->size_a;
-	printf("STACK [A][%d]\n", i);
-	while (i--)
-		ft_putendl(ft_itoa(stacks->stack_a[i]));
-	i = stacks->size_b;
-	printf("STACK [B][%d]\n", i);
-	while (i--)
-		ft_putendl(ft_itoa(stacks->stack_b[i]));
-}
-
-int		ft_issorted(t_stack *stacks)
-{
-	int i;
-
-	i = 0;
-	while (stacks->size_a-1 >= 0)
-	{
-		if (stacks->stack_a[i] > stacks->stack_a[i + 1])
-		{
-			printf("stack[%d](%d) > stack[%d](%d)", i, stacks->stack_a[i], i + 1, stacks->stack_a[i + 1]);
-			return (-1);
-		}
-		i++;
-	}
-	if (stacks->size_b != 0)
-		return (-1);
-	return (0);
-}
-
 int main(int ac, char **av)
 {
     int		flags;
@@ -119,7 +90,6 @@ int main(int ac, char **av)
 	if (flags & FLAG_H)
 		ft_print_help();
 	ft_init(&stacks, ac, av);
-	ft_printer(&stacks);
 	while (get_next_line(0, &line) > 0)
 	{
 		if (ft_strequ(line, ""))
@@ -127,7 +97,7 @@ int main(int ac, char **av)
 		if (ft_handle(&stacks, line, flags))
 		{
 			free(line);
-			ft_dinit(&stacks);
+			ft_dinit(&stacks, 0);
 			ft_args_error();
 		}
 	}

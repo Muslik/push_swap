@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_issorted.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: Dzhab <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 13:47:57 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/25 01:30:34 by Dzhab            ###   ########.fr       */
+/*   Created: 2019/02/25 01:15:40 by Dzhab             #+#    #+#             */
+/*   Updated: 2019/02/25 01:15:54 by Dzhab            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+int		ft_issorted(t_stack *stacks)
 {
-	t_stack	stacks;
+	int i;
 
-	ft_init(&stacks, ac, av);
-	ft_printer(&stacks);
+	i = stacks->size_a - 1;
+	while (i > 0)
+	{
+		if (stacks->stack_a[i] > stacks->stack_a[i - 1] && i - 1 >= 0)
+			return (-1);
+		i--;
+	}
+	if (stacks->size_b != 0)
+		return (-1);
+	return (0);
 }
