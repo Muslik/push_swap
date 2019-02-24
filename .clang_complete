@@ -1,0 +1,5 @@
+-I/Users/dmorgil/Projects/push_swap/includes
+-I/Users/dmorgil/Projects/push_swap/libft/includes
+-Wall
+-Wextra
+-Werror
