@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 21:18:11 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/25 02:01:55 by Dzhab            ###   ########.fr       */
+/*   Updated: 2019/02/25 23:06:56 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,3 @@ void	ft_rrr(t_stack *stacks, int flags)
 	ft_rra(stacks, flags);
 	ft_rrb(stacks, flags);
 }
-

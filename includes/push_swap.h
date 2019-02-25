@@ -1,12 +1,12 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 17:06:53 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/25 01:23:41 by Dzhab            ###   ########.fr       */
+/*   Created: 2019/02/25 23:17:08 by dmorgil           #+#    #+#             */
+/*   Updated: 2019/02/25 23:17:30 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,13 @@ typedef struct	s_stack
 	int			size_b;
 	int			top_a;
 	int			top_b;
-}               t_stack;
+}				t_stack;
 
-void            ft_usage_error(char c);
+void			ft_usage_error(char c);
 void			ft_print_help(void);
 void			ft_args_error(void);
 void			ft_init(t_stack *stacks, int ac, char **av);
 void			ft_dinit(t_stack *stacks, int only_stacks);
-int				ft_handle(t_stack *stacks, char *line, int flags);
 void			ft_printer(t_stack *stacks);
 void			ft_sa(t_stack *stacks, int flags);
 void			ft_sb(t_stack *stacks, int flags);

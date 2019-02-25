@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 14:45:31 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/24 17:04:27 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/25 23:11:20 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_pop_stack(t_stk **stack)
 {
-	t_stk *tmp;
+	t_stk	*tmp;
 	int		i;
 
 	if (stack == NULL)

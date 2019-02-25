@@ -6,13 +6,13 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:54:19 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/25 01:25:20 by Dzhab            ###   ########.fr       */
+/*   Updated: 2019/02/25 23:10:26 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_handle(t_stack *stacks, char *line, int flags)
+static	int		ft_handle(t_stack *stacks, char *line, int flags)
 {
 	if (ft_strequ("sa", line))
 		ft_sa(stacks, flags);
@@ -41,59 +41,59 @@ int		ft_handle(t_stack *stacks, char *line, int flags)
 	return (0);
 }
 
-static int	ft_add_flags(int *flags, char *str)
+static int		ft_add_flags(int *flags, char *str)
 {
-    int bit;
+	int bit;
 
-    while (*(++str))
-    {
-        if ((bit = ft_strchr_by_index("chv", *str)) == -1)
-        {
-            ft_usage_error(*str);
-            return (0);
-        }
-        if (*str == 'h')
-            *flags &= ~(FLAG_C | FLAG_V);
-        if (*str == 'v' || *str == 'c')
-            *flags &= ~FLAG_H;
-        *flags |= (1 << bit);
-    }
-    return (1);
+	while (*(++str))
+	{
+		if ((bit = ft_strchr_by_index("chv", *str)) == -1)
+		{
+			ft_usage_error(*str);
+			return (0);
+		}
+		if (*str == 'h')
+			*flags &= ~(FLAG_C | FLAG_V);
+		if (*str == 'v' || *str == 'c')
+			*flags &= ~FLAG_H;
+		*flags |= (1 << bit);
+	}
+	return (1);
 }
 
 static	void	ft_get_flags(int *ac, char ***av, int *flags)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (++i < *ac && (*av)[i][0] == '-' && ft_isalpha((*av)[i][1]))
-    {
-        if (!ft_add_flags(flags, (*av)[i]))
+	i = 0;
+	while (++i < *ac && (*av)[i][0] == '-' && ft_isalpha((*av)[i][1]))
+	{
+		if (!ft_add_flags(flags, (*av)[i]))
 		{
 			ft_usage_error(**av[i]);
 			exit(EXIT_FAILURE);
 		}
 		(*ac)--;
 		(*av)++;
-        i--;
-    }
+		i--;
+	}
 }
 
-int main(int ac, char **av)
+int				main(int ac, char **av)
 {
-    int		flags;
+	int		flags;
 	char	*line;
 	t_stack	stacks;
 
-    flags = 0;
-    ft_get_flags(&ac, &av, &flags);
+	flags = 0;
+	ft_get_flags(&ac, &av, &flags);
 	if (flags & FLAG_H)
 		ft_print_help();
 	ft_init(&stacks, ac, av);
 	while (get_next_line(0, &line) > 0)
 	{
 		if (ft_strequ(line, ""))
-			break;
+			break ;
 		if (ft_handle(&stacks, line, flags))
 		{
 			free(line);
@@ -105,4 +105,5 @@ int main(int ac, char **av)
 		ft_putendl("KO");
 	else
 		ft_putendl("OK");
+	ft_dinit(&stacks, 0);
 }

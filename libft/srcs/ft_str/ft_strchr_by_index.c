@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 20:37:08 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/21 20:37:52 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/25 23:10:59 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_strchr_by_index(char *str, int c)
 {
-    int j;
+	int j;
 
-    j = 0;
-    while (str[j])
-    {
-        if (str[j] == c)
-            return (j);
-        j++;
-    }
-    return (-1);
+	j = 0;
+	while (str[j])
+	{
+		if (str[j] == c)
+			return (j);
+		j++;
+	}
+	return (-1);
 }

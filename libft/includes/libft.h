@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:28:05 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/24 17:03:49 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/25 23:16:29 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct		s_tree
 
 typedef struct		s_stk
 {
-	int 			num;
+	int				num;
 	struct s_stk	*next;
 }					t_stk;
 
@@ -103,12 +103,12 @@ int					ft_getchar(void);
 int					ft_putwchar(wchar_t wc);
 int					ft_putwchar_fd(wchar_t wc, int fd);
 void				ft_colorstr(const char *s1, const char *s2, const char *s3);
-void				ft_colorstr_nl(const char *s1, const char *s2, const char *s3);
-void				ft_colorstr_fd(const char *s1, const char *s2, const char *s3, int fd);
-void				ft_colorstr_nl_fd(const char *s1, const char *s2, const char *s3, int fd);
-
-
-
+void				ft_colorstr_nl(const char *s1, const char *s2,
+									const char *s3);
+void				ft_colorstr_fd(const char *s1, const char *s2,
+									const char *s3, int fd);
+void				ft_colorstr_nl_fd(const char *s1, const char *s2,
+									const char *s3, int fd);
 
 /*
 ** STDLIB
@@ -124,7 +124,8 @@ char				*ft_itoa(int n);
 
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_strcmp(const char *s1, const char *s2);
-char				*ft_strnstr(const char *haystack, const char *needle, size_t n);
+char				*ft_strnstr(const char *haystack, const char *needle,
+								size_t n);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
@@ -156,17 +157,17 @@ int					ft_strisnumeric(char *str);
 int					ft_strisprintable(char *str);
 char				*ft_strlowcase(char *str);
 char				*ft_strupcase(char *str);
-int         		ft_strchr_by_index(char *str, int c);
+int					ft_strchr_by_index(char *str, int c);
 int					ft_word_count(char const *s, char c);
 
 int					ft_memcmp(const void *str1, const void *str2, size_t n);
 void				*ft_memchr (const void *arr, int c, size_t n);
-void				*ft_memmove (void *destination, const void *source, size_t n);
+void				*ft_memmove (void *destination, const void *source,
+								size_t n);
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
-
 
 /*
 ** TOIS

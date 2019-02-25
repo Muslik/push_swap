@@ -6,18 +6,18 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 14:31:50 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/25 01:37:57 by Dzhab            ###   ########.fr       */
+/*   Updated: 2019/02/25 23:13:40 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_splits(t_stack *stacks, char **av)
+int		ft_check_splits(t_stack *stacks, char **av)
 {
 	int		words;
 	char	**args;
-	int 	i;
-	int 	j;
+	int		i;
+	int		j;
 	long	check;
 
 	i = -1;
@@ -41,7 +41,7 @@ int	ft_check_splits(t_stack *stacks, char **av)
 	return (0);
 }
 
-int	ft_check_args(t_stack *stacks, int ac, char **av)
+int		ft_check_args(t_stack *stacks, int ac, char **av)
 {
 	int		i;
 	int		j;
@@ -52,16 +52,10 @@ int	ft_check_args(t_stack *stacks, int ac, char **av)
 	{
 		j = -1;
 		while (av[i][++j])
-		{
 			if ((!ft_isdigit(av[i][j]) && !(av[i][j] == '-' && j == 0)))
-			{
 				return (-1);
-			}
-		}
 		if (j == 0)
-		{
 			return (-1);
-		}
 		if (j > 11)
 			return (-1);
 		check = ft_atol(av[i]);
@@ -72,7 +66,7 @@ int	ft_check_args(t_stack *stacks, int ac, char **av)
 	return (0);
 }
 
-int	ft_duplicates(t_stack *stacks)
+int		ft_duplicates(t_stack *stacks)
 {
 	int		i;
 	int		j;
@@ -109,14 +103,11 @@ void	ft_init(t_stack *stacks, int ac, char **av)
 		ft_dinit(stacks, 1);
 }
 
-void	ft_dinit(t_stack *stacks, int only_stacks)
+void	ft_dinit(t_stack *stacks, int status)
 {
-	if (only_stacks)
-	{
-		free(stacks->stack_a);
-		free(stacks->stack_b);
-		if (stacks->size_a != 0)
-			ft_args_error();
+	free(stacks->stack_a);
+	free(stacks->stack_b);
+	if (status == 1)
 		exit(EXIT_FAILURE);
-	}
+	exit(EXIT_SUCCESS);
 }

@@ -6,13 +6,14 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 16:48:26 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/24 16:48:28 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/25 23:18:00 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_colorstr_nl_fd(const char *s1, const char *s2, const char *s3, int fd)
+void	ft_colorstr_nl_fd(const char *s1, const char *s2, const char *s3,
+							int fd)
 {
 	int i;
 

@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 20:43:51 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/24 16:32:29 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/25 23:05:42 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_usage_error(char c)
 {
-    ft_putstr_fd("./checker: illegal option -- ", 2);
-    ft_putchar_fd(c, 2);
-    ft_putstr_fd("\nusage: ./checker [-chv] [arguments ...]", 2);
-    exit(EXIT_FAILURE);
+	ft_putstr_fd("./checker: illegal option -- ", 2);
+	ft_putchar_fd(c, 2);
+	ft_putstr_fd("\nusage: ./checker [-chv] [arguments ...]", 2);
+	exit(EXIT_FAILURE);
 }
 
 void	ft_args_error(void)
