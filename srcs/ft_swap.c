@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 18:52:22 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/24 19:58:16 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/26 17:18:59 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_sa(t_stack *stacks, int flags)
 {
 	int last;
-	int temp;
+	t_elem temp;
 
 	if (stacks->size_a <= 1)
 		return ;
@@ -30,7 +30,7 @@ void	ft_sa(t_stack *stacks, int flags)
 void	ft_sb(t_stack *stacks, int flags)
 {
 	int last;
-	int temp;
+	t_elem temp;
 
 	if (stacks->size_b <= 1)
 		return ;

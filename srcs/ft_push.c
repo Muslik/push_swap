@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:12:55 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/24 22:48:45 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/26 17:20:00 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_pb(t_stack *stacks, int flags)
 		return ;
 	last_a = stacks->size_a - 1;
 	stacks->stack_b[stacks->size_b] = stacks->stack_a[stacks->size_a - 1];
-	stacks->stack_a[stacks->size_a - 1] = 0;
+	stacks->stack_a[stacks->size_a - 1].val = 0;
 	stacks->size_b++;
 	stacks->size_a--;
 	if (flags & FLAG_V)
@@ -37,7 +37,7 @@ void	ft_pa(t_stack *stacks, int flags)
 	last_a = (stacks->size_a == 0 ? 0 : stacks->size_a);
 	last_b = stacks->size_b - 1;
 	stacks->stack_a[last_a] = stacks->stack_b[last_b];
-	stacks->stack_b[last_b] = 0;
+	stacks->stack_b[last_b].val = 0;
 	stacks->size_b--;
 	stacks->size_a++;
 	if (flags & FLAG_V)

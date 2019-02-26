@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:28:05 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/26 14:27:35 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/26 18:36:16 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,14 @@ void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 void				*ft_realloc(void *ptr, size_t prev_size, size_t new_size);
 void				ft_free_darray(char **args);
+void				ft_swap(int *a, int *b);
+
+/*
+** ARR
+*/
+
+void				ft_print_array(int *array, int len);
+void				ft_bubble_sort(int *arr, int len);
 
 /*
 ** LISTS

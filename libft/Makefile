@@ -6,7 +6,7 @@
 #    By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 17:38:22 by dmorgil           #+#    #+#              #
-#    Updated: 2019/02/26 14:29:03 by dmorgil          ###   ########.fr        #
+#    Updated: 2019/02/26 18:39:11 by dmorgil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #
@@ -21,7 +21,9 @@ _INCLUDES		=	libft.h get_next_line.h ft_printf.h
 
 _MEM_FS			=	ft_memchr.c ft_memccpy.c ft_memmove.c ft_memcpy.c ft_realloc.c\
 					ft_memcmp.c ft_bzero.c ft_memalloc.c ft_memdel.c ft_memset.c\
-					ft_free_darray.c
+					ft_free_darray.c ft_swap.c
+
+_ARR_FS			=	ft_print_arr.c ft_bubble_sort.c
 
 _IO_FS			= 	ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c \
 					ft_putendl_fd.c ft_putnbr_fd.c ft_putwchar.c ft_putchar.c \
@@ -61,8 +63,8 @@ _BITS_FS		=	ft_reverse_bits.c
 
 _PRINT_FS		=	double.c ft_printf.c init.c io.c num.c precision.c str.c spec.c
 
-MATH_FS			=	$(addprefix $(SRCD)ft_math/,$(_MATH_FS))
-MATH_O			=	$(_MATH_FS:.c=.o)
+ARR_FS			=	$(addprefix $(SRCD)ft_arr/,$(_ARR_FS))
+ARR_O			=	$(_ARR_FS:.c=.o)
 TYPES_FS		=	$(addprefix $(SRCD)ft_types/,$(_TYPES_FS))
 TYPES_O			=	$(_TYPES_FS:.c=.o)
 BTREE_FS		=	$(addprefix $(SRCD)ft_btree/,$(_BTREE_FS))
@@ -83,10 +85,12 @@ BITS_FS			=	$(addprefix $(SRCD)ft_bits/,$(_BITS_FS))
 BITS_O			=	$(_BITS_FS:.c=.o)
 
 SRCS			=	$(MATH_FS) $(TYPES_FS) $(BTREE_FS) $(LIST_FS) \
-					$(MEM_FS) $(IO_FS) $(STR_FS) $(STACK_FS) $(PRINT_FS)
+					$(MEM_FS) $(IO_FS) $(STR_FS) $(STACK_FS) $(PRINT_FS) \
+					$(ARR_FS)
 
 OBJS			=	$(MATH_O) $(TYPES_O) $(BTREE_O) $(LIST_O) \
-					$(MEM_O) $(IO_O) $(STR_O) $(STACK_O) $(PRINT_O)
+					$(MEM_O) $(IO_O) $(STR_O) $(STACK_O) $(PRINT_O) \
+					$(ARR_O)
 
 OBJB			=	$(addprefix $(OBJD), $(OBJS))
 
@@ -150,6 +154,11 @@ $(OBJD)%.o: $(SRCD)ft_str/%.c $(INCLUDES) Makefile
 	@$(CC) $(CFLAGS) -o $@ -c $< -I$(INCLUDES_D)
 
 $(OBJD)%.o: $(SRCD)ft_printf/%.c $(INCLUDES) Makefile
+	@printf "\r\033[K$(CGREEN)Compiling$(NC): $<"
+	@mkdir -p $(OBJD)
+	@$(CC) $(CFLAGS) -o $@ -c $< -I$(INCLUDES_D)
+
+$(OBJD)%.o: $(SRCD)ft_arr/%.c $(INCLUDES) Makefile
 	@printf "\r\033[K$(CGREEN)Compiling$(NC): $<"
 	@mkdir -p $(OBJD)
 	@$(CC) $(CFLAGS) -o $@ -c $< -I$(INCLUDES_D)

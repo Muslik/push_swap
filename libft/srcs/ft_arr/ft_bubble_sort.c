@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_issorted.c                                      :+:      :+:    :+:   */
+/*   ft_bubble_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Dzhab <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 01:15:40 by Dzhab             #+#    #+#             */
-/*   Updated: 2019/02/26 17:20:43 by dmorgil          ###   ########.fr       */
+/*   Created: 2019/02/26 18:31:35 by dmorgil           #+#    #+#             */
+/*   Updated: 2019/02/26 18:32:05 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		ft_issorted(t_stack *stacks)
+void			ft_bubble_sort(int *arr, int len)
 {
 	int i;
+	int j;
 
-	i = stacks->size_a - 1;
-	while (i > 0)
+	i = 0;
+	while (i < len)
 	{
-		if (stacks->stack_a[i].val > stacks->stack_a[i - 1].val && i - 1 >= 0)
-			return (0);
-		i--;
+		j = 0;
+		while (j < len - i - 1)
+		{
+			if (arr[j] > arr[j + 1])
+				ft_swap(&arr[j], &arr[j + 1]);
+			j++;
+		}
+		i++;
 	}
-	if (stacks->size_b != 0)
-		return (0);
-	return (1);
 }

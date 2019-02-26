@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:17:08 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/26 12:21:50 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/26 20:30:28 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,23 @@
 # define FLAG_H 2
 # define FLAG_V 4
 
+typedef struct	s_elem
+{
+	int 		val;
+	int			ind;
+	int			stay;
+}				t_elem;
+
 typedef struct	s_stack
 {
-	int			*stack_a;
-	int			*stack_b;
+	t_elem		*stack_a;
+	t_elem		*stack_b;
+	int			*sorted;
+	int			true_count;
+	int			false_count;
 	int			size_a;
 	int			size_b;
-	int			top_a;
-	int			top_b;
+	int			len;
 }				t_stack;
 
 void			ft_usage_error(char c);
@@ -52,5 +61,9 @@ void			ft_rrb(t_stack *stacks, int flags);
 void			ft_rrr(t_stack *stacks, int flags);
 int				ft_issorted(t_stack *stacks);
 void			ft_printer(t_stack *stacks);
+void			ft_set_index(t_stack *stacks);
+void			ft_markup(t_stack *stacks);
+void			ft_from_a_to_b(t_stack *stacks);
+
 
 #endif
