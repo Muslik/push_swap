@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoinc.c                                      :+:      :+:    :+:   */
+/*   ft_strjoinc_free.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 19:07:35 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/18 14:11:56 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/26 12:04:53 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strjoinc_cl(const char *a, char b, int cl)
+char	*ft_strjoinc_free(const char *a, char b, int cl)
 {
 	char	*s;
 	int		len;

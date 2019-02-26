@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hkuphal <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 13:47:57 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/26 11:25:41 by dmorgil          ###   ########.fr       */
+/*   Created: 2019/01/15 13:58:19 by hkuphal           #+#    #+#             */
+/*   Updated: 2019/01/15 13:59:19 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int		ft_count_words(char **arr)
 {
-	t_stack	stacks;
+	int		i;
 
-	ft_init(&stacks, ac, av);
+	i = -1;
+	while (arr[++i])
+		;
+	return (i);
 }

@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen_chr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hkuphal <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 13:47:57 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/26 11:25:41 by dmorgil          ###   ########.fr       */
+/*   Created: 2018/11/20 12:35:07 by hkuphal           #+#    #+#             */
+/*   Updated: 2019/01/26 10:18:04 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <string.h>
 
-int	main(int ac, char **av)
+size_t	ft_strlen_chr(const char *s, char *c)
 {
-	t_stack	stacks;
+	const char *tmp;
 
-	ft_init(&stacks, ac, av);
+	tmp = s;
+	while (*tmp && tmp != c)
+		++tmp;
+	return (tmp - s);
 }

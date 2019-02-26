@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_issorted.c                                      :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Dzhab <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hkuphal <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 01:15:40 by Dzhab             #+#    #+#             */
-/*   Updated: 2019/02/26 11:43:28 by dmorgil          ###   ########.fr       */
+/*   Created: 2018/11/20 12:32:39 by hkuphal           #+#    #+#             */
+/*   Updated: 2018/11/23 13:15:43 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+#include <unistd.h>
 
-int		ft_issorted(t_stack *stacks)
+void	ft_putstr_chr(char const *s, char *c)
 {
-	int i;
+	size_t	len;
 
-	i = stacks->size_a - 1;
-	while (i > 0)
+	if (s != NULL)
 	{
-		if (stacks->stack_a[i] > stacks->stack_a[i - 1] && i - 1 >= 0)
-			return (0);
-		i--;
+		len = ft_strlen_chr(s, c);
+		write(1, s, len);
 	}
-	if (stacks->size_b != 0)
-		return (0);
-	return (1);
 }

@@ -6,11 +6,12 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:54:19 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/25 23:10:26 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/26 12:57:17 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 static	int		ft_handle(t_stack *stacks, char *line, int flags)
 {
@@ -37,7 +38,7 @@ static	int		ft_handle(t_stack *stacks, char *line, int flags)
 	else if (ft_strequ("rrr", line))
 		ft_rrr(stacks, flags);
 	else
-		ft_args_error();
+		return (-1);
 	return (0);
 }
 
@@ -99,11 +100,13 @@ int				main(int ac, char **av)
 			free(line);
 			ft_dinit(&stacks, 0);
 			ft_args_error();
+			exit(EXIT_FAILURE);
 		}
+		free(line);
 	}
 	if (ft_issorted(&stacks))
-		ft_putendl("KO");
-	else
 		ft_putendl("OK");
+	else
+		ft_putendl("KO");
 	ft_dinit(&stacks, 0);
 }

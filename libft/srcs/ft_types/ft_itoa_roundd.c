@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_issorted.c                                      :+:      :+:    :+:   */
+/*   ft_itoa_roundd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Dzhab <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hkuphal <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 01:15:40 by Dzhab             #+#    #+#             */
-/*   Updated: 2019/02/26 11:43:28 by dmorgil          ###   ########.fr       */
+/*   Created: 2019/02/19 17:05:28 by hkuphal           #+#    #+#             */
+/*   Updated: 2019/02/21 14:55:02 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <stdio.h>
 
-int		ft_issorted(t_stack *stacks)
+long	ft_itoa_round(double tmp)
 {
-	int i;
+	int		sign;
 
-	i = stacks->size_a - 1;
-	while (i > 0)
+	sign = 1;
+	if (tmp < 0)
 	{
-		if (stacks->stack_a[i] > stacks->stack_a[i - 1] && i - 1 >= 0)
-			return (0);
-		i--;
+		tmp = -tmp;
+		sign = -1;
 	}
-	if (stacks->size_b != 0)
-		return (0);
-	return (1);
+	if ((long)(tmp * 10) - (long)tmp * 10 >= 5)
+		return (((long)(tmp) + 1) * sign);
+	return ((long)tmp * sign);
 }

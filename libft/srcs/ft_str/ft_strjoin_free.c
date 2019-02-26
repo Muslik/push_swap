@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_cl.c                                    :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 19:07:35 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/19 14:35:28 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/26 12:04:36 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strjoin_clr(char const *s1, char const *s2, int cl)
+char	*ft_strjoin_free(char const *s1, char const *s2, int cl)
 {
 	char	*p;
 	char	*newstr;

@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:28:05 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/25 23:16:29 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/26 14:27:35 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
+
 
 /*
 ** COLORS
@@ -52,6 +53,18 @@ typedef struct		s_stk
 	struct s_stk	*next;
 }					t_stk;
 
+typedef	union	u_double
+{
+	double			d;
+	unsigned long	data;
+}				t_double;
+
+typedef	union	u_ldouble
+{
+	long double		d;
+	unsigned long	data[2];
+}				t_ldouble;
+
 /*
 ** TREE
 */
@@ -74,6 +87,7 @@ void				ft_tree_apply_prefix(t_tree *head, void (*applyf)(void *));
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 void				*ft_realloc(void *ptr, size_t prev_size, size_t new_size);
+void				ft_free_darray(char **args);
 
 /*
 ** LISTS
@@ -96,6 +110,7 @@ void				ft_putnbr(int c);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
+void				ft_putstr_chr(const char *s, char *c);
 void				ft_putendl_fd(char const *str, int fd);
 void				ft_putnbr_fd(int c, int fd);
 void				ft_put2str(const char *s1, const char *s2);
@@ -117,6 +132,19 @@ void				ft_colorstr_nl_fd(const char *s1, const char *s2,
 int					ft_atoi(const char *str);
 long				ft_atol(const char *str);
 char				*ft_itoa(int n);
+char				*ft_itoa_bin(unsigned long n, int base, int i);
+char				*ft_itoa_pointer(void *p);
+long				ft_itoa_round(double tmp);
+char				*ft_itoa_double(double nbr, int prec);
+char				*ft_itoa_ldouble(long double nbr, int prec);
+char				*ft_itoa_u(unsigned long n);
+char				*ft_itoa_base(long value, int base, int i);
+
+/*
+** BITS
+*/
+
+unsigned int	ft_reverse_bits(unsigned int octet);
 
 /*
 ** STRING
@@ -131,6 +159,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *str);
+int					ft_strlen_chr(const char *s, char *c);
 char				*ft_strcat(char *dest, const char *src);
 char				*ft_strncat(char *dest, const char *src, size_t size);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
@@ -147,8 +176,8 @@ int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strjoin_clr(char const *s1, char const *s2, int clr);
-char				*ft_strjoinc_clr(char const *s1, char const c, int clr);
+char				*ft_strjoin_free(char const *s1, char const *s2, int clr);
+char				*ft_strjoinc_free(char const *s1, char const c, int clr);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 int					ft_strisalpha(char *str);
@@ -159,6 +188,7 @@ char				*ft_strlowcase(char *str);
 char				*ft_strupcase(char *str);
 int					ft_strchr_by_index(char *str, int c);
 int					ft_word_count(char const *s, char c);
+int					ft_count_words(char **arr);
 
 int					ft_memcmp(const void *str1, const void *str2, size_t n);
 void				*ft_memchr (const void *arr, int c, size_t n);

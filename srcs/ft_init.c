@@ -6,28 +6,27 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 14:31:50 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/25 23:13:40 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/26 14:28:38 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_check_splits(t_stack *stacks, char **av)
+int		ft_check_splits(t_stack *stacks, char **av, int words)
 {
-	int		words;
 	char	**args;
 	int		i;
 	int		j;
 	long	check;
 
 	i = -1;
-	words = ft_word_count(av[1], ' ');
 	args = ft_strsplit(av[1], ' ');
 	while (++i < words)
 	{
 		j = -1;
 		while (args[i][++j])
-			if ((!ft_isdigit(args[i][j]) && !(args[i][j] == '-' && j == 0)))
+			if ((!ft_isdigit(args[i][j]) && !(args[i][j] == '-' && j == 0
+											  && args[i][j + 1])))
 				return (-1);
 		if (j == 0)
 			return (-1);
@@ -38,6 +37,7 @@ int		ft_check_splits(t_stack *stacks, char **av)
 			return (-1);
 		stacks->stack_a[words - 1 - i] = (int)check;
 	}
+	ft_free_darray(args);
 	return (0);
 }
 
@@ -52,7 +52,8 @@ int		ft_check_args(t_stack *stacks, int ac, char **av)
 	{
 		j = -1;
 		while (av[i][++j])
-			if ((!ft_isdigit(av[i][j]) && !(av[i][j] == '-' && j == 0)))
+			if ((!ft_isdigit(av[i][j]) && !(av[i][j] == '-' && j == 0
+											&& av[i][j + 1])))
 				return (-1);
 		if (j == 0)
 			return (-1);
@@ -84,6 +85,8 @@ int		ft_duplicates(t_stack *stacks)
 
 void	ft_init(t_stack *stacks, int ac, char **av)
 {
+	int words;
+
 	stacks->stack_a = (ac == 2) ? ft_memalloc(sizeof(int) *
 			(ft_word_count(av[1], ' '))) : ft_memalloc(sizeof(int) * (ac - 1));
 	stacks->stack_b = (ac == 2) ? ft_memalloc(sizeof(int) *
@@ -94,20 +97,26 @@ void	ft_init(t_stack *stacks, int ac, char **av)
 	stacks->top_b = 0;
 	if (ac == 2)
 	{
-		if (ft_check_splits(stacks, av) || ft_duplicates(stacks) ||
+		words = ft_word_count(av[1], ' ');
+		if (ft_check_splits(stacks, av, words) || ft_duplicates(stacks) ||
 				stacks->size_a == 0)
 			ft_dinit(stacks, 1);
 	}
-	else if (ft_check_args(stacks, ac, av) || ft_duplicates(stacks)
+	else
+	{
+		if (ft_check_args(stacks, ac, av) || ft_duplicates(stacks)
 			|| stacks->size_a == 0)
-		ft_dinit(stacks, 1);
+			ft_dinit(stacks, 1);
+	}
 }
 
 void	ft_dinit(t_stack *stacks, int status)
 {
 	free(stacks->stack_a);
 	free(stacks->stack_b);
-	if (status == 1)
+	if (status)
+	{
+		ft_args_error();
 		exit(EXIT_FAILURE);
-	exit(EXIT_SUCCESS);
+	}
 }
