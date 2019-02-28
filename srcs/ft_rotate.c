@@ -6,13 +6,13 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:59:32 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/26 17:19:23 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/28 12:29:53 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_ra(t_stack *stacks, int flags)
+void	ft_ra(t_stack *stacks, int print)
 {
 	int i;
 	int last;
@@ -26,11 +26,11 @@ void	ft_ra(t_stack *stacks, int flags)
 	while (--i > 0)
 		stacks->stack_a[i] = stacks->stack_a[i - 1];
 	stacks->stack_a[0] = tmp;
-	if (flags & FLAG_V)
-		ft_printer(stacks);
+	if (print)
+		ft_putendl("ra");
 }
 
-void	ft_rb(t_stack *stacks, int flags)
+void	ft_rb(t_stack *stacks, int print)
 {
 	int i;
 	int last;
@@ -44,8 +44,8 @@ void	ft_rb(t_stack *stacks, int flags)
 	while (--i > 0)
 		stacks->stack_b[i] = stacks->stack_b[i - 1];
 	stacks->stack_b[0] = tmp;
-	if (flags & FLAG_V)
-		ft_printer(stacks);
+	if (print)
+		ft_putendl("rb");
 }
 
 void	ft_rr(t_stack *stacks, int flags)

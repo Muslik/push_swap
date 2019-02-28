@@ -6,7 +6,7 @@
 /*   By: Dzhab <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 01:14:59 by Dzhab             #+#    #+#             */
-/*   Updated: 2019/02/26 20:34:27 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/28 20:52:55 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	ft_printer(t_stack *stacks)
 	i = stacks->size_b;
 	printf("STACK [B][%d]\n", i);
 	while (i--)
-		ft_printf("%d\n", stacks->stack_b[i].val);
+		ft_printf("%d[%d] {index: %d} {stay: %d}\n", stacks->stack_b[i].val, i, stacks->stack_b[i].ind, stacks->stack_b[i].stay);
 
 }

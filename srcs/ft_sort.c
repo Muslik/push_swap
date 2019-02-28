@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 17:24:43 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/26 20:40:06 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/02/28 21:34:08 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static	int		ft_check_sa(t_stack *stacks)
 	ft_markup(stacks);
 	if (stacks->true_count <= count)
 		return (0);
+	ft_printf("sa\n");
 	return (1);
 }
 
@@ -55,27 +56,31 @@ void			ft_from_a_to_b(t_stack *stacks)
 {
 	while (stacks->false_count)
 	{
-		printf("FALSE COUNT BEFORE: %d\n", stacks->false_count);
-		ft_printer(stacks);
 		if (!ft_check_sa(stacks))
 		{
-			printf("%sМЫ НЕ МОЖЕМ ПОМЕНЯТЬ%s\n", RED, NC);
 			ft_sa(stacks, 0);
+			stacks->true_count = 0;
 			ft_markup(stacks);
-			ft_printer(stacks);
 		}
 		if (stacks->stack_a[stacks->size_a - 1].stay == 0)
 		{
-			printf("%sПеремещаем в стак B%s\n", RED, NC);
-			ft_pb(stacks, 0);
+			ft_pb(stacks, 1);
 			stacks->false_count--;
-			ft_printer(stacks);
-			printf("FALSE COUNT AFTER: %d\n", stacks->false_count);
 		}
 		else
-		{
-			printf("Rotate стак а\n");
-			ft_ra(stacks, 0);
-		}
+			ft_ra(stacks, 1);
+	}
+}
+
+void			ft_from_b_to_a(t_stack *stacks)
+{
+	int min;
+	int index_start;
+
+	min = 0;
+	index_start = stacks->stack_b[stacks->size_b - 1].ind;
+	while (stacks->size_b)
+	{
+		
 	}
 }
