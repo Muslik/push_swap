@@ -17,9 +17,9 @@ void	ft_printer(t_stack *stacks)
 	int i;
 
 	i = stacks->size_a;
-	printf("STACK [A][%d]\n", i);
+	printf("STACK [A][%d]  {true: %d} {false: %d} \n", i, stacks->true_count, stacks->false_count);
 	while (i--)
-		ft_printf("%d[%d] {index: %d} {stay: %d} {true: %d} {false: %d}\n", stacks->stack_a[i].val, i, stacks->stack_a[i].ind, stacks->stack_a[i].stay, stacks->true_count, stacks->false_count);
+		ft_printf("%d[%d] {index: %d} {stay: %d}\n", stacks->stack_a[i].val, i, stacks->stack_a[i].ind, stacks->stack_a[i].stay);
 	i = stacks->size_b;
 	printf("STACK [B][%d]\n", i);
 	while (i--)

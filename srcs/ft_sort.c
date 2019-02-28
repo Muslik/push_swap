@@ -47,9 +47,7 @@ static	int		ft_check_sa(t_stack *stacks)
 	ft_sa(stacks, 0);
 	ft_markup(stacks);
 	if (stacks->true_count <= count)
-	{
 		return (0);
-	}
 	return (1);
 }
 
@@ -57,19 +55,27 @@ void			ft_from_a_to_b(t_stack *stacks)
 {
 	while (stacks->false_count)
 	{
-		printf("FALSE COUNT %d\n", stacks->false_count);
+		printf("FALSE COUNT BEFORE: %d\n", stacks->false_count);
 		ft_printer(stacks);
 		if (!ft_check_sa(stacks))
 		{
+			printf("%sМЫ НЕ МОЖЕМ ПОМЕНЯТЬ%s\n", RED, NC);
 			ft_sa(stacks, 0);
 			ft_markup(stacks);
+			ft_printer(stacks);
 		}
-		else if (stacks->stack_a[stacks->len - 1].stay == 0)
+		if (stacks->stack_a[stacks->size_a - 1].stay == 0)
 		{
+			printf("%sПеремещаем в стак B%s\n", RED, NC);
 			ft_pb(stacks, 0);
 			stacks->false_count--;
+			ft_printer(stacks);
+			printf("FALSE COUNT AFTER: %d\n", stacks->false_count);
 		}
 		else
+		{
+			printf("Rotate стак а\n");
 			ft_ra(stacks, 0);
+		}
 	}
 }

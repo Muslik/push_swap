@@ -94,7 +94,7 @@ int				main(int ac, char **av)
 	ft_bubble_sort(stacks.sorted, stacks.len);
 	ft_set_index(&stacks);
 	ft_markup(&stacks);
-	ft_printer(&stacks);
+	/* ft_printer(&stacks); */
 	ft_from_a_to_b(&stacks);
 	/* ft_printer(&stacks); */
 	while (get_next_line(0, &line) > 0)
