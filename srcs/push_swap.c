@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 13:47:57 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/26 11:25:41 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/02 19:08:44 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,5 @@ int	main(int ac, char **av)
 	t_stack	stacks;
 
 	ft_init(&stacks, ac, av);
+	ft_printer(&stacks);
 }
