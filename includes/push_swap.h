@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:17:08 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/28 15:04:52 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/03 14:37:51 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void			ft_printer(t_stack *stacks);
 void			ft_set_index(t_stack *stacks);
 void			ft_markup(t_stack *stacks);
 void			ft_from_a_to_b(t_stack *stacks);
+int				ft_ra_or_rra(t_stack *stacks, int index);
+int				ft_rb_or_rrb(t_stack *stacks, int index);
 
 
 #endif
