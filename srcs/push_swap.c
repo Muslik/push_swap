@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 13:47:57 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/04 18:43:50 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/05 00:50:37 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ int	main(int ac, char **av)
 	ft_bubble_sort(stacks.sorted, stacks.len);
 	ft_set_index(&stacks);
 	ft_markup(&stacks);
+	ft_printf("NO SEG\n");
 	ft_printer(&stacks);
 	ft_from_a_to_b(&stacks);
+	ft_printf("NO SEG (2)\n");
 	ft_printer(&stacks);
 	/* printf("%5d", ft_ra_or_rra(&stacks, 1)); */
-	ft_get_best_to_move(&stacks);
+	/* ft_get_best_to_move(&stacks); */
 
 
 	ft_dinit(&stacks, 0);

@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 14:31:50 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/04 16:57:41 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/04 20:54:39 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ int		ft_check_splits(t_stack *stacks, char **av, int words)
 		check = ft_atol(args[i]);
 		if (INT_MAX < check || check < INT_MIN)
 			return (-1);
-		stacks->stack_a[words - 1 - i].val = (int)check;
-		stacks->sorted[words - 1 - i] = (int)check;
-		stacks->stack_a[words - 1 - i].ind = i;
-		stacks->stack_a[words - 1 - i].stay = 0;
+		stacks->stack_a[i - 1].val = (int)check;
+		stacks->sorted[i - 1] = (int)check;
+		stacks->stack_a[i - 1].ind = i;
+		stacks->stack_a[i - 1].stay = 0;
 	}
 	ft_free_darray(args);
 	return (0);
@@ -65,10 +65,10 @@ int		ft_check_args(t_stack *stacks, int ac, char **av)
 		check = ft_atol(av[i]);
 		if (INT_MAX < check || check < INT_MIN)
 			return (-1);
-		stacks->stack_a[ac - 1 - i].val = (int)check;
-		stacks->sorted[ac - 1 - i] = (int)check;
-		stacks->stack_a[ac - 1 - i].ind = i;
-		stacks->stack_a[ac - 1 - i].stay = 0;
+		stacks->stack_a[i - 1].val = (int)check;
+		stacks->sorted[i - 1] = (int)check;
+		stacks->stack_a[i - 1].ind = i;
+		stacks->stack_a[i - 1].stay = 0;
 	}
 	return (0);
 }

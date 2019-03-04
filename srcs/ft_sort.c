@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 17:24:43 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/04 19:39:56 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/05 00:55:50 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void			ft_from_a_to_b(t_stack *stacks)
 			stacks->true_count = 0;
 			ft_markup(stacks);
 		}
-		if (stacks->stack_a[stacks->size_a - 1].stay == 0)
+		if (stacks->stack_a[0].stay == 0)
 		{
 			ft_pb(stacks, 1);
 			stacks->false_count--;
@@ -170,12 +170,12 @@ void			ft_get_best_to_move(t_stack *stacks)
 	int max_elem;
 
 	curr = 0;
-	i = stacks->size_b;
-	while (--i >= 0)
+	i = -1;
+	while (++i < stacks->size_b)
 	{
-		j = stacks->size_a;
+		j = -1;
 		max_elem = ft_get_max_elem_index(stacks);
-		while (--j >= 0)
+		while (++j < stacks->size_b)
 			if (stacks->stack_b[i].val < stacks->stack_a[j].val &&
 				stacks->stack_a[j].val < stacks->stack_a[max_elem].val)
 				max_elem = j;
