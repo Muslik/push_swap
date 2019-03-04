@@ -6,7 +6,7 @@
 #    By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 17:38:22 by dmorgil           #+#    #+#              #
-#    Updated: 2019/03/02 18:47:10 by suvitiel         ###   ########.fr        #
+#    Updated: 2019/03/05 02:29:04 by Dzhab            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,12 +63,12 @@ $(OBJD):
 $(LIBFT):
 	@make -C $(LIBDIR)
 
-$(NAME): $(OBJB_MAIN)
+$(NAME): $(OBJD) $(OBJB_MAIN)
 	@printf "\r\033[K$(GREEN)Compiling $(NC): $(YELLOW)$(NAME)$(NC)\n"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJB_MAIN) $(LIBFT)
 	@echo "$(GREEN)DONE$(NC)"
 
-$(NAME2): $(OBJB_CHECK)
+$(NAME2): $(OBJD) $(OBJB_CHECK)
 	@printf "\r\033[K$(GREEN)Compiling $(NC): $(YELLOW)$(NAME2)$(NC)\n"
 	@$(CC) $(CFLAGS) -o $(NAME2) $(OBJB_CHECK) $(LIBFT)
 	@echo "$(GREEN)DONE$(NC)"

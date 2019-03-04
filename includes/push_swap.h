@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:17:08 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/04 18:43:13 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/05 02:02:55 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define FLAG_H 2
 # define FLAG_V 4
 
-typedef struct	s_elem
+typedef struct	s_el
 {
 	int 		val;
 	int			ind;
@@ -32,12 +32,12 @@ typedef struct	s_elem
 	int			dir_b;
 	int			move_a;
 	int			move_b;
-}				t_elem;
+}				t_el;
 
 typedef struct	s_stack
 {
-	t_elem		*stack_a;
-	t_elem		*stack_b;
+	t_el		*stack_a;
+	t_el		*stack_b;
 	int			*sorted;
 	int			true_count;
 	int			false_count;
@@ -48,6 +48,7 @@ typedef struct	s_stack
 	int			dir_b;
 	int			move_a;
 	int			move_b;
+	int			flags;
 }				t_stack;
 
 void			ft_usage_error(char c);

@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 18:52:22 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/28 12:30:02 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/05 02:48:02 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,40 @@
 
 void	ft_sa(t_stack *stacks, int print)
 {
-	int last;
-	t_elem temp;
+	t_el temp;
 
 	if (stacks->size_a <= 1)
 		return ;
-	last = stacks->size_a - 1;
-	temp = stacks->stack_a[last];
-	stacks->stack_a[last] = stacks->stack_a[last - 1];
-	stacks->stack_a[last - 1] = temp;
-	if (print)
+	temp = stacks->stack_a[0];
+	stacks->stack_a[0] = stacks->stack_a[1];
+	stacks->stack_a[1] = temp;
+	if (print != 0 && print != -1)
 		ft_putendl("sa");
+	else if (print != -1  && stacks->flags & FLAG_V)
+		ft_printer(stacks);
 }
 
 void	ft_sb(t_stack *stacks, int print)
 {
-	int last;
-	t_elem temp;
+	t_el temp;
 
 	if (stacks->size_b <= 1)
 		return ;
-	last = stacks->size_b - 1;
-	temp = stacks->stack_b[last];
-	stacks->stack_b[last] = stacks->stack_b[last - 1];
-	stacks->stack_b[last - 1] = temp;
-	if (print)
+	temp = stacks->stack_b[0];
+	stacks->stack_b[0] = stacks->stack_b[1];
+	stacks->stack_b[1] = temp;
+	if (print != 0 && print != -1)
 		ft_putendl("sb");
+	else if (print != -1  && stacks->flags & FLAG_V)
+		ft_printer(stacks);
 }
 
-void	ft_ss(t_stack *stacks, int flags)
+void	ft_ss(t_stack *stacks, int print)
 {
-	ft_sa(stacks, flags);
-	ft_sb(stacks, flags);
+	ft_sa(stacks, -1);
+	ft_sb(stacks, -1);
+	if (print)
+		ft_putendl("ss");
+	if (stacks->flags & FLAG_V)
+		ft_printer(stacks);
 }

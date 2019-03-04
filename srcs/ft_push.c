@@ -6,13 +6,13 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:12:55 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/04 21:39:51 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/05 02:12:36 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_pb(t_stack *stacks, int flags)
+void	ft_pb(t_stack *stacks, int print)
 {
 	int		i;
 
@@ -27,11 +27,13 @@ void	ft_pb(t_stack *stacks, int flags)
 		stacks->stack_a[i] = stacks->stack_a[i + 1];
 	stacks->size_a--;
 	stacks->size_b++;
-	if (flags & FLAG_V)
+	if (stacks->flags & FLAG_V)
 		ft_printer(stacks);
+	if (print == 1)
+		ft_putendl("pb");
 }
 
-void	ft_pa(t_stack *stacks, int flags)
+void	ft_pa(t_stack *stacks, int print)
 {
 	int		i;
 
@@ -46,6 +48,8 @@ void	ft_pa(t_stack *stacks, int flags)
 		stacks->stack_b[i] = stacks->stack_b[i + 1];
 	stacks->size_b--;
 	stacks->size_a++;
-	if (flags & FLAG_V)
+	if (stacks->flags & FLAG_V)
 		ft_printer(stacks);
+	if (print == 1)
+		ft_putendl("pa");
 }

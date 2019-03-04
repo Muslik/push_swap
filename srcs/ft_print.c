@@ -6,7 +6,7 @@
 /*   By: Dzhab <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 01:14:59 by Dzhab             #+#    #+#             */
-/*   Updated: 2019/03/04 20:56:50 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/05 02:35:02 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,21 @@ void	ft_printer(t_stack *stacks)
 	int i;
 
 	i = -1;
-	printf("STACK [A][%d]  {true: %d} {false: %d} \n", stacks->size_a, stacks->true_count, stacks->false_count);
+	ft_printf("%s-------------------------------------%s\n", GREEN, NC);
+	printf("%19sSTACK [A][%d]\n{true: %d}\n{false: %d}%s\n", GREEN, stacks->size_a, stacks->true_count, stacks->false_count, NC);
+	ft_printf("%s-------------------------------------%s\n", GREEN, NC);
 	while (++i < stacks->size_a)
-		ft_printf("%d[%d] {index: %d} {stay: %d}\n", stacks->stack_a[i].val, i, stacks->stack_a[i].ind, stacks->stack_a[i].stay);
+		ft_printf("%5d[%d] {index: %d} {stay: %d}\n", stacks->stack_a[i].val, i, stacks->stack_a[i].ind, stacks->stack_a[i].stay);
 	i = stacks->size_b;
-	printf("STACK [B][%d]\n", stacks->size_b);
+	ft_printf("%s-------------------------------------%s\n", MAGENTA, NC);
+	printf("%19sSTACK [B][%d]%s\n", MAGENTA, stacks->size_b, NC);
+	ft_printf("%s-------------------------------------%s\n", MAGENTA, NC);
 	i = -1;
 	while (++i < stacks->size_b)
-		ft_printf("%d[%d] {index: %d} {stay: %d}\n", stacks->stack_b[i].val, i, stacks->stack_b[i].ind, stacks->stack_b[i].stay);
-
+		ft_printf("%5d[%d]\n", stacks->stack_b[i].val, i);
+	if (i == 0)
+	{
+		ft_printf("%s-------------NO-ELEMENTS-------------%s\n", MAGENTA, NC);
+		ft_printf("%s-------------------------------------%s\n", MAGENTA, NC);
+	}
 }

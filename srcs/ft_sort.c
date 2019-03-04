@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 17:24:43 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/05 00:55:50 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/05 02:49:29 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,9 +181,9 @@ void			ft_get_best_to_move(t_stack *stacks)
 				max_elem = j;
 		if (stacks->stack_b[i].val < stacks->stack_a[max_elem].val &&
 			max_elem != 0)
-			max_elem--;
+			max_elem++;
 		else if (stacks->stack_b[i].val < stacks->stack_a[max_elem].val)
-			max_elem = stacks->size_a - 1;
+			max_elem = 0;
 		stacks->stack_b[i].move_a = (max_elem < stacks->size_a / 2) ? max_elem : stacks->size_a - max_elem;
 		stacks->stack_b[i].move_b = ((i < stacks->size_b / 2) ? stacks->size_b - i : i);
 		printf("MAX IN A AFTER: %d\n", stacks->stack_a[max_elem].val);

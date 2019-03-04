@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 14:31:50 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/04 20:54:39 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/05 01:58:32 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_check_splits(t_stack *stacks, char **av, int words)
 			return (-1);
 		stacks->stack_a[i - 1].val = (int)check;
 		stacks->sorted[i - 1] = (int)check;
-		stacks->stack_a[i - 1].ind = i;
+		stacks->stack_a[i - 1].ind = 0;
 		stacks->stack_a[i - 1].stay = 0;
 	}
 	ft_free_darray(args);
@@ -67,7 +67,7 @@ int		ft_check_args(t_stack *stacks, int ac, char **av)
 			return (-1);
 		stacks->stack_a[i - 1].val = (int)check;
 		stacks->sorted[i - 1] = (int)check;
-		stacks->stack_a[i - 1].ind = i;
+		stacks->stack_a[i - 1].ind = 0;
 		stacks->stack_a[i - 1].stay = 0;
 	}
 	return (0);
@@ -89,16 +89,31 @@ int		ft_duplicates(t_stack *stacks)
 	return (0);
 }
 
+void		ft_memory_init(t_stack *s, int ac, char **av)
+{
+	if (!(s->stack_a = (ac == 2) ? (t_el *)malloc(sizeof(t_el) *
+		(ft_word_count(av[1], ' '))) : (t_el *)malloc(sizeof(t_el) * (ac - 1))))
+		exit(EXIT_FAILURE);
+	if (!(s->stack_b = (ac == 2) ? malloc(sizeof(t_el) *
+		(ft_word_count(av[1], ' '))) : malloc(sizeof(t_el) * (ac - 1))))
+	{
+		free(s->stack_a);
+		exit(EXIT_FAILURE);
+	}
+	if (!(s->sorted = (ac == 2) ? (int *)malloc(sizeof(int) *
+		(ft_word_count(av[1], ' '))) : (int *)malloc(sizeof(int) * (ac - 1))))
+	{
+		free(s->stack_a);
+		free(s->stack_b);
+		exit(EXIT_FAILURE);
+	}
+}
+
 void	ft_init(t_stack *stacks, int ac, char **av)
 {
 	int words;
 
-	stacks->stack_a = (ac == 2) ? ft_memalloc(sizeof(t_elem) *
-			(ft_word_count(av[1], ' '))) : ft_memalloc(sizeof(t_elem) * (ac - 1));
-	stacks->stack_b = (ac == 2) ? ft_memalloc(sizeof(t_elem) *
-			(ft_word_count(av[1], ' '))) : ft_memalloc(sizeof(t_elem) * (ac - 1));
-	stacks->sorted = (ac == 2) ? ft_memalloc(sizeof(int) *
-			(ft_word_count(av[1], ' '))) : ft_memalloc(sizeof(int) * (ac - 1));
+	ft_memory_init(stacks, ac, av);
 	stacks->size_a = (ac == 2) ? ft_word_count(av[1], ' ') : (ac - 1);
 	stacks->size_b = 0;
 	stacks->len = stacks->size_a;

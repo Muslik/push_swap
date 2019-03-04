@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:59:32 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/04 21:45:18 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/05 02:10:39 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_ra(t_stack *stacks, int print)
 {
 	int i;
-	t_elem tmp;
+	t_el tmp;
 
 	if (stacks->size_a <= 1)
 		return ;
@@ -24,15 +24,16 @@ void	ft_ra(t_stack *stacks, int print)
 	while (++i < stacks->size_a - 1)
 		stacks->stack_a[i] = stacks->stack_a[i + 1];
 	stacks->stack_a[stacks->size_a - 1] = tmp;
-	if (print)
+	if (print != 0 && print != -1)
 		ft_putendl("ra");
-	ft_printer(stacks);
+	else if (print != -1  && stacks->flags & FLAG_V)
+		ft_printer(stacks);
 }
 
 void	ft_rb(t_stack *stacks, int print)
 {
 	int i;
-	t_elem tmp;
+	t_el tmp;
 
 	if (stacks->size_b <= 1)
 		return ;
@@ -41,13 +42,18 @@ void	ft_rb(t_stack *stacks, int print)
 	while (++i < stacks->size_b - 1)
 		stacks->stack_b[i] = stacks->stack_b[i + 1];
 	stacks->stack_b[stacks->size_b - 1] = tmp;
-	if (print)
+	if (print != 0 && print != -1)
 		ft_putendl("rb");
-	ft_printer(stacks);
+	else if (print != -1  && stacks->flags & FLAG_V)
+		ft_printer(stacks);
 }
 
-void	ft_rr(t_stack *stacks, int flags)
+void	ft_rr(t_stack *stacks, int print)
 {
-	ft_ra(stacks, flags);
-	ft_rb(stacks, flags);
+	ft_ra(stacks, -1);
+	ft_rb(stacks, -1);
+	if (print)
+		ft_putendl("rr");
+	if (stacks->flags & FLAG_V)
+		ft_printer(stacks);
 }
