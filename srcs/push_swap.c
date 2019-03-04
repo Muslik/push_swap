@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 13:47:57 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/03 13:30:02 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:43:50 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int	main(int ac, char **av)
 	ft_printer(&stacks);
 	ft_from_a_to_b(&stacks);
 	ft_printer(&stacks);
-	printf("%5d", ft_ra_or_rra(&stacks, 1));
+	/* printf("%5d", ft_ra_or_rra(&stacks, 1)); */
+	ft_get_best_to_move(&stacks);
+
+
 	ft_dinit(&stacks, 0);
 }

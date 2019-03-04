@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:17:08 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/03 14:37:51 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:43:13 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ typedef struct	s_elem
 	int 		val;
 	int			ind;
 	int			stay;
+	int			dir_a;
+	int			dir_b;
+	int			move_a;
+	int			move_b;
 }				t_elem;
 
 typedef struct	s_stack
@@ -40,6 +44,10 @@ typedef struct	s_stack
 	int			size_a;
 	int			size_b;
 	int			len;
+	int			dir_a;
+	int			dir_b;
+	int			move_a;
+	int			move_b;
 }				t_stack;
 
 void			ft_usage_error(char c);
@@ -66,6 +74,10 @@ void			ft_markup(t_stack *stacks);
 void			ft_from_a_to_b(t_stack *stacks);
 int				ft_ra_or_rra(t_stack *stacks, int index);
 int				ft_rb_or_rrb(t_stack *stacks, int index);
+int				ft_get_max_elem_index(t_stack *stacks);
+void			ft_get_best_to_move(t_stack *stacks);
+
+
 
 
 #endif
