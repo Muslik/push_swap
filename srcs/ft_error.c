@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 20:43:51 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/25 23:05:42 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/05 20:32:00 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,16 @@ void	ft_usage_error(char c)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_args_error(void)
+void	ft_args_error(t_stack *stacks)
 {
-	ft_colorstr_nl_fd(RED, "Error", NC, 2);
+	if (stacks->flags & FLAG_C)
+	{
+		ft_putstr_fd(RED, 2);
+		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd(NC, 2);
+	}
+	else
+		ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
 

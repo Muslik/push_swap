@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:12:55 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/05 02:12:36 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/05 15:09:31 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void	ft_pb(t_stack *stacks, int print)
 	stacks->size_a--;
 	stacks->size_b++;
 	if (stacks->flags & FLAG_V)
+	{
+		printf("ВЫПОЛНЯЕТСЯ\n");
 		ft_printer(stacks);
+	}
 	if (print == 1)
 		ft_putendl("pb");
 }

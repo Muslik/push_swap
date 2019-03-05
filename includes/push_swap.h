@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:17:08 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/05 02:02:55 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/05 20:19:09 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct	s_el
 	int			dir_b;
 	int			move_a;
 	int			move_b;
+	int			moves;
 }				t_el;
 
 typedef struct	s_stack
@@ -53,10 +54,10 @@ typedef struct	s_stack
 
 void			ft_usage_error(char c);
 void			ft_print_help(void);
-void			ft_args_error(void);
+void			ft_args_error(t_stack *stacks);
 void			ft_init(t_stack *stacks, int ac, char **av);
 void			ft_dinit(t_stack *stacks, int only_stacks);
-void			ft_printer(t_stack *stacks);
+/* void			ft_printer(t_stack *stacks); */
 void			ft_sa(t_stack *stacks, int flags);
 void			ft_sb(t_stack *stacks, int flags);
 void			ft_ss(t_stack *stacks, int flags);
@@ -77,6 +78,10 @@ int				ft_ra_or_rra(t_stack *stacks, int index);
 int				ft_rb_or_rrb(t_stack *stacks, int index);
 int				ft_get_max_elem_index(t_stack *stacks);
 void			ft_get_best_to_move(t_stack *stacks);
+void			ft_from_b_to_a(t_stack *stacks);
+void			ft_align_a(t_stack *stacks);
+
+
 
 
 

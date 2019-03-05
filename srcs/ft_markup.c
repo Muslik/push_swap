@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 20:07:16 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/05 02:49:12 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/05 22:18:45 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,12 @@ void			ft_markup(t_stack *stacks)
 	index_start = stacks->stack_a[0].ind;
 	while (++i < stacks->size_a)
 	{
-		if (i == stacks->size_a - 1 || stacks->stack_a[i].val > stacks->stack_a[i + 1].val)
+		if (i == stacks->size_a - 1 ||
+			stacks->stack_a[i].val > stacks->stack_a[i + 1].val)
 		{
-			if (stacks->true_count < markup_len || (stacks->true_count == markup_len && stacks->stack_a[i - markup_len + 1].ind < index_start))
+			if (stacks->true_count < markup_len ||
+				(stacks->true_count == markup_len &&
+				 stacks->stack_a[i - markup_len + 1].ind < index_start))
 			{
 				markup_pos = i;
 				stacks->true_count = markup_len;

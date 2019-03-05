@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:54:19 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/05 02:13:50 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/05 20:21:16 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ int				main(int ac, char **av)
 		if (ft_handle(&stacks, line))
 		{
 			free(line);
+			ft_args_error(&stacks);
 			ft_dinit(&stacks, 0);
-			ft_args_error();
 			exit(EXIT_FAILURE);
 		}
 		free(line);

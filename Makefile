@@ -6,7 +6,7 @@
 #    By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 17:38:22 by dmorgil           #+#    #+#              #
-#    Updated: 2019/03/05 02:29:04 by Dzhab            ###   ########.fr        #
+#    Updated: 2019/03/05 19:15:39 by dmorgil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ INCLUDES	= 	$(addprefix $(INCLUDES_D)/,$(_INCLUDES))
 
 _MAIN_FS	=	push_swap.c ft_init.c ft_swap.c ft_push.c ft_rotate.c\
 				ft_rev_rotate.c ft_error.c ft_print.c ft_indexing.c ft_markup.c\
-				ft_sort.c
+				ft_sort.c ft_issorted.c
 
 _CHECKER_FS	=	checker.c ft_error.c ft_init.c ft_swap.c ft_push.c ft_rotate.c\
 				ft_rev_rotate.c ft_print.c ft_issorted.c

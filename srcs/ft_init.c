@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 14:31:50 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/05 01:58:32 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/05 22:29:57 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ int		ft_check_splits(t_stack *stacks, char **av, int words)
 		check = ft_atol(args[i]);
 		if (INT_MAX < check || check < INT_MIN)
 			return (-1);
-		stacks->stack_a[i - 1].val = (int)check;
-		stacks->sorted[i - 1] = (int)check;
-		stacks->stack_a[i - 1].ind = 0;
-		stacks->stack_a[i - 1].stay = 0;
+		stacks->stack_a[i].val = (int)check;
+		stacks->sorted[i] = (int)check;
+		stacks->stack_a[i].ind = 0;
+		stacks->stack_a[i].stay = 0;
 	}
 	ft_free_darray(args);
 	return (0);
@@ -94,8 +94,8 @@ void		ft_memory_init(t_stack *s, int ac, char **av)
 	if (!(s->stack_a = (ac == 2) ? (t_el *)malloc(sizeof(t_el) *
 		(ft_word_count(av[1], ' '))) : (t_el *)malloc(sizeof(t_el) * (ac - 1))))
 		exit(EXIT_FAILURE);
-	if (!(s->stack_b = (ac == 2) ? malloc(sizeof(t_el) *
-		(ft_word_count(av[1], ' '))) : malloc(sizeof(t_el) * (ac - 1))))
+	if (!(s->stack_b = (ac == 2) ? (t_el *)malloc(sizeof(t_el) *
+		(ft_word_count(av[1], ' '))) : (t_el *)malloc(sizeof(t_el) * (ac - 1))))
 	{
 		free(s->stack_a);
 		exit(EXIT_FAILURE);
@@ -139,7 +139,7 @@ void	ft_dinit(t_stack *stacks, int status)
 	free(stacks->sorted);
 	if (status)
 	{
-		ft_args_error();
+		ft_args_error(stacks);
 		exit(EXIT_FAILURE);
 	}
 }
