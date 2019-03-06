@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_print_arr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 20:43:51 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 02:55:59 by suvitiel         ###   ########.fr       */
+/*   Created: 2019/02/26 18:13:48 by dmorgil           #+#    #+#             */
+/*   Updated: 2019/02/26 18:14:05 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_usage_error(char c)
+void	ft_print_array(int *array, int len)
 {
-	ft_putstr_fd("./checker: illegal option -- ", 2);
-	ft_putchar_fd(c, 2);
-	ft_putstr_fd("\nusage: ./checker [-chv] [arguments ...]\n", 2);
-	exit(EXIT_FAILURE);
-}
+	int i;
 
-void	ft_args_error(t_stack *stacks)
-{
-	if (stacks->flags & FLAG_C)
+	i = 0;
+	while (i < len)
 	{
-		ft_putstr_fd(RED, 2);
-		ft_putstr_fd("Error\n", 2);
-		ft_putstr_fd(NC, 2);
+		ft_printf("arr[%d] = %d\n", i, array[i]);
+		i++;
 	}
-	else
-		ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
 }
 

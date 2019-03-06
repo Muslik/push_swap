@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_bubble_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 20:43:51 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 02:55:59 by suvitiel         ###   ########.fr       */
+/*   Created: 2019/02/26 18:31:35 by dmorgil           #+#    #+#             */
+/*   Updated: 2019/02/26 18:32:05 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	ft_usage_error(char c)
+void			ft_bubble_sort(int *arr, int len)
 {
-	ft_putstr_fd("./checker: illegal option -- ", 2);
-	ft_putchar_fd(c, 2);
-	ft_putstr_fd("\nusage: ./checker [-chv] [arguments ...]\n", 2);
-	exit(EXIT_FAILURE);
-}
+	int i;
+	int j;
 
-void	ft_args_error(t_stack *stacks)
-{
-	if (stacks->flags & FLAG_C)
+	i = 0;
+	while (i < len)
 	{
-		ft_putstr_fd(RED, 2);
-		ft_putstr_fd("Error\n", 2);
-		ft_putstr_fd(NC, 2);
+		j = 0;
+		while (j < len - i - 1)
+		{
+			if (arr[j] > arr[j + 1])
+				ft_swap(&arr[j], &arr[j + 1]);
+			j++;
+		}
+		i++;
 	}
-	else
-		ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
 }
-

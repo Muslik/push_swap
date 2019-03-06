@@ -6,37 +6,34 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 19:07:35 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/26 12:04:36 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/03 14:21:01 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strjoin_free(char const *s1, char const *s2, int cl)
+char    *ft_strjoin_free(char const *s1, char const *s2, int k)
 {
-	char	*p;
-	char	*newstr;
+    char *str;
 
-	if (!s1 || !s2)
-		return (NULL);
-	newstr = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
-	p = newstr;
-	if (!newstr)
-		return (NULL);
-	while (*s1)
-		*newstr++ = *s1++;
-	while (*s2)
-		*newstr++ = *s2++;
-	*newstr = '\0';
-	if (cl == 1)
-		free((void *)s1);
-	else if (cl == 2)
-		free((void *)s2);
-	else if (cl == 3)
-	{
-		free((void *)s1);
-		free((void *)s2);
-	}
-	return (p);
+    if (!s1 || !s2)
+        return (NULL);
+    if ((str = (char*)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2))
+                    + 1)))
+    {
+        ft_strcpy(str, s1);
+        str = ft_strcat(str, s2);
+        if (k == 1)
+            free((char *)s1);
+        else if (k == 2)
+            free((char *)s2);
+        else if (k == 3)
+        {
+            free((char *)s1);
+            free((char *)s2);
+        }
+        return (str);
+    }
+    return (NULL);
 }

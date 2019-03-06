@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_issorted.c                                      :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Dzhab <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 01:15:40 by Dzhab             #+#    #+#             */
-/*   Updated: 2019/03/06 00:56:18 by suvitiel         ###   ########.fr       */
+/*   Created: 2019/02/26 17:40:20 by dmorgil           #+#    #+#             */
+/*   Updated: 2019/02/26 17:40:41 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int		ft_issorted(t_stack *stacks)
+void ft_swap(int *a, int *b)
 {
-	int i;
+	int tmp_a;
 
-	i = -1;
-	while (++i < stacks->size_a - 1)
-		if (stacks->s_a[i].val > stacks->s_a[i + 1].val)
-			return (0);
-	if (stacks->size_b != 0)
-		return (0);
-	return (1);
+	tmp_a = *a;
+	*a = *b;
+	*b = tmp_a;
 }
