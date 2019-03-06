@@ -6,7 +6,7 @@
 #    By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 17:38:22 by dmorgil           #+#    #+#              #
-#    Updated: 2019/03/05 19:15:39 by dmorgil          ###   ########.fr        #
+#    Updated: 2019/03/06 02:56:54 by suvitiel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,10 @@ INCLUDES	= 	$(addprefix $(INCLUDES_D)/,$(_INCLUDES))
 
 _MAIN_FS	=	push_swap.c ft_init.c ft_swap.c ft_push.c ft_rotate.c\
 				ft_rev_rotate.c ft_error.c ft_print.c ft_indexing.c ft_markup.c\
-				ft_sort.c ft_issorted.c
+				ft_sort.c ft_issorted.c ft_sort_cases.c ft_from_b_to_a.c
 
 _CHECKER_FS	=	checker.c ft_error.c ft_init.c ft_swap.c ft_push.c ft_rotate.c\
-				ft_rev_rotate.c ft_print.c ft_issorted.c
+				ft_rev_rotate.c ft_print.c ft_issorted.c ft_help.c
 
 MAIN_FS		=	$(addprefix $(SRCD)/,$(_MAIN_FS))
 MAIN_O		=	$(_MAIN_FS:.c=.o)

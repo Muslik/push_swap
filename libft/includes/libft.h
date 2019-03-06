@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:28:05 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/26 18:36:16 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/06 02:28:23 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f) (t_list *elem));
 ** INPUT / OUTPUT
 */
 
+void				ft_print_spaces(int count);
 void				ft_putstr(char const *str);
 void				ft_putendl(char const *str);
 void				ft_putnbr(int c);

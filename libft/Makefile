@@ -6,7 +6,7 @@
 #    By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 17:38:22 by dmorgil           #+#    #+#              #
-#    Updated: 2019/02/26 18:39:11 by dmorgil          ###   ########.fr        #
+#    Updated: 2019/03/06 02:28:40 by suvitiel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #
@@ -29,7 +29,7 @@ _IO_FS			= 	ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c \
 					ft_putendl_fd.c ft_putnbr_fd.c ft_putwchar.c ft_putchar.c \
 					ft_putwchar_fd.c ft_putstr.c get_next_line.c \
 					ft_colorstr.c ft_colorstr_nl.c ft_colorstr_fd.c ft_colorstr_nl_fd.c \
-					ft_putstr_chr.c
+					ft_putstr_chr.c ft_print_spaces.c
 
 _TYPES_FS		=	ft_atoi.c ft_isblank.c ft_islower.c ft_isspace.c ft_isupper.c \
 					ft_isxdigit.c ft_isgraph.c ft_iscntrl.c ft_strisprintable.c \

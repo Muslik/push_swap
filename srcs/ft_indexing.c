@@ -23,8 +23,8 @@ void			ft_set_index(t_stack *stacks)
   i = 0;
   while (i < stacks->size_a)
   {
-	stacks->stack_a[i].ind =
-		ft_get_index(stacks, stacks->len, stacks->stack_a[i].val);
+	stacks->s_a[i].ind =
+		ft_get_index(stacks, stacks->len, stacks->s_a[i].val);
 	i++;
   }
 }

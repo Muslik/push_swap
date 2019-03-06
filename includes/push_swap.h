@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:17:08 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/05 20:19:09 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/06 02:39:00 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ typedef struct	s_el
 
 typedef struct	s_stack
 {
-	t_el		*stack_a;
-	t_el		*stack_b;
+	t_el		*s_a;
+	t_el		*s_b;
 	int			*sorted;
-	int			true_count;
-	int			false_count;
+	int			t_count;
+	int			f_count;
 	int			size_a;
 	int			size_b;
 	int			len;
@@ -53,11 +53,10 @@ typedef struct	s_stack
 }				t_stack;
 
 void			ft_usage_error(char c);
-void			ft_print_help(void);
+void			ft_print_help(t_stack *stack);
 void			ft_args_error(t_stack *stacks);
 void			ft_init(t_stack *stacks, int ac, char **av);
 void			ft_dinit(t_stack *stacks, int only_stacks);
-/* void			ft_printer(t_stack *stacks); */
 void			ft_sa(t_stack *stacks, int flags);
 void			ft_sb(t_stack *stacks, int flags);
 void			ft_ss(t_stack *stacks, int flags);
@@ -70,16 +69,16 @@ void			ft_rra(t_stack *stacks, int flags);
 void			ft_rrb(t_stack *stacks, int flags);
 void			ft_rrr(t_stack *stacks, int flags);
 int				ft_issorted(t_stack *stacks);
-void			ft_printer(t_stack *stacks);
+void			ft_printer(t_stack *stacks, char *op);
 void			ft_set_index(t_stack *stacks);
 void			ft_markup(t_stack *stacks);
 void			ft_from_a_to_b(t_stack *stacks);
-int				ft_ra_or_rra(t_stack *stacks, int index);
-int				ft_rb_or_rrb(t_stack *stacks, int index);
-int				ft_get_max_elem_index(t_stack *stacks);
-void			ft_get_best_to_move(t_stack *stacks);
 void			ft_from_b_to_a(t_stack *stacks);
 void			ft_align_a(t_stack *stacks);
+void			ft_sort_two(t_stack *s);
+void			ft_sort_three(t_stack *s);
+void			ft_sort_five(t_stack *s);
+
 
 
 

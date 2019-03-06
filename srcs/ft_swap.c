@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 18:52:22 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/05 02:48:02 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 03:17:51 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	ft_sa(t_stack *stacks, int print)
 
 	if (stacks->size_a <= 1)
 		return ;
-	temp = stacks->stack_a[0];
-	stacks->stack_a[0] = stacks->stack_a[1];
-	stacks->stack_a[1] = temp;
+	temp = stacks->s_a[0];
+	stacks->s_a[0] = stacks->s_a[1];
+	stacks->s_a[1] = temp;
 	if (print != 0 && print != -1)
 		ft_putendl("sa");
 	else if (print != -1  && stacks->flags & FLAG_V)
-		ft_printer(stacks);
+		ft_printer(stacks, "sa");
 }
 
 void	ft_sb(t_stack *stacks, int print)
@@ -33,13 +33,13 @@ void	ft_sb(t_stack *stacks, int print)
 
 	if (stacks->size_b <= 1)
 		return ;
-	temp = stacks->stack_b[0];
-	stacks->stack_b[0] = stacks->stack_b[1];
-	stacks->stack_b[1] = temp;
+	temp = stacks->s_b[0];
+	stacks->s_b[0] = stacks->s_b[1];
+	stacks->s_b[1] = temp;
 	if (print != 0 && print != -1)
 		ft_putendl("sb");
 	else if (print != -1  && stacks->flags & FLAG_V)
-		ft_printer(stacks);
+		ft_printer(stacks, "sb");
 }
 
 void	ft_ss(t_stack *stacks, int print)
@@ -49,5 +49,5 @@ void	ft_ss(t_stack *stacks, int print)
 	if (print)
 		ft_putendl("ss");
 	if (stacks->flags & FLAG_V)
-		ft_printer(stacks);
+		ft_printer(stacks, "ss");
 }

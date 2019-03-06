@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 14:31:50 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/05 22:29:57 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/06 00:55:47 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ int		ft_check_splits(t_stack *stacks, char **av, int words)
 		check = ft_atol(args[i]);
 		if (INT_MAX < check || check < INT_MIN)
 			return (-1);
-		stacks->stack_a[i].val = (int)check;
+		stacks->s_a[i].val = (int)check;
 		stacks->sorted[i] = (int)check;
-		stacks->stack_a[i].ind = 0;
-		stacks->stack_a[i].stay = 0;
+		stacks->s_a[i].ind = 0;
+		stacks->s_a[i].stay = 0;
 	}
 	ft_free_darray(args);
 	return (0);
@@ -65,10 +65,10 @@ int		ft_check_args(t_stack *stacks, int ac, char **av)
 		check = ft_atol(av[i]);
 		if (INT_MAX < check || check < INT_MIN)
 			return (-1);
-		stacks->stack_a[i - 1].val = (int)check;
+		stacks->s_a[i - 1].val = (int)check;
 		stacks->sorted[i - 1] = (int)check;
-		stacks->stack_a[i - 1].ind = 0;
-		stacks->stack_a[i - 1].stay = 0;
+		stacks->s_a[i - 1].ind = 0;
+		stacks->s_a[i - 1].stay = 0;
 	}
 	return (0);
 }
@@ -83,7 +83,7 @@ int		ft_duplicates(t_stack *stacks)
 	{
 		j = -1;
 		while (++j < stacks->size_a)
-			if (i != j && stacks->stack_a[i].val == stacks->stack_a[j].val)
+			if (i != j && stacks->s_a[i].val == stacks->s_a[j].val)
 				return (-1);
 	}
 	return (0);
@@ -91,20 +91,20 @@ int		ft_duplicates(t_stack *stacks)
 
 void		ft_memory_init(t_stack *s, int ac, char **av)
 {
-	if (!(s->stack_a = (ac == 2) ? (t_el *)malloc(sizeof(t_el) *
+	if (!(s->s_a = (ac == 2) ? (t_el *)malloc(sizeof(t_el) *
 		(ft_word_count(av[1], ' '))) : (t_el *)malloc(sizeof(t_el) * (ac - 1))))
 		exit(EXIT_FAILURE);
-	if (!(s->stack_b = (ac == 2) ? (t_el *)malloc(sizeof(t_el) *
+	if (!(s->s_b = (ac == 2) ? (t_el *)malloc(sizeof(t_el) *
 		(ft_word_count(av[1], ' '))) : (t_el *)malloc(sizeof(t_el) * (ac - 1))))
 	{
-		free(s->stack_a);
+		free(s->s_a);
 		exit(EXIT_FAILURE);
 	}
 	if (!(s->sorted = (ac == 2) ? (int *)malloc(sizeof(int) *
 		(ft_word_count(av[1], ' '))) : (int *)malloc(sizeof(int) * (ac - 1))))
 	{
-		free(s->stack_a);
-		free(s->stack_b);
+		free(s->s_a);
+		free(s->s_b);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -117,8 +117,8 @@ void	ft_init(t_stack *stacks, int ac, char **av)
 	stacks->size_a = (ac == 2) ? ft_word_count(av[1], ' ') : (ac - 1);
 	stacks->size_b = 0;
 	stacks->len = stacks->size_a;
-	stacks->true_count = 0;
-	stacks->false_count = 0;
+	stacks->t_count = 0;
+	stacks->f_count = 0;
 	if (ac == 2)
 	{
 		words = ft_word_count(av[1], ' ');
@@ -134,8 +134,8 @@ void	ft_init(t_stack *stacks, int ac, char **av)
 
 void	ft_dinit(t_stack *stacks, int status)
 {
-	free(stacks->stack_a);
-	free(stacks->stack_b);
+	free(stacks->s_a);
+	free(stacks->s_b);
 	free(stacks->sorted);
 	if (status)
 	{

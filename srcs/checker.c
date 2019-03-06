@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:54:19 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/05 20:21:16 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/06 03:23:21 by suvitiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,22 +54,21 @@ static int		ft_add_flags(int *flags, char *str)
 			return (0);
 		}
 		if (*str == 'h')
-			*flags &= ~(FLAG_C | FLAG_V);
-		if (*str == 'v' || *str == 'c')
-			*flags &= ~FLAG_H;
+			*flags &= ~(FLAG_V);
 		*flags |= (1 << bit);
 	}
 	return (1);
 }
 
-static	void	ft_get_flags(int *ac, char ***av, int *flags)
+static	void	ft_get_flags(int *ac, char ***av, t_stack *stacks)
 {
 	int i;
 
 	i = 0;
+	stacks->flags = 0;
 	while (++i < *ac && (*av)[i][0] == '-' && ft_isalpha((*av)[i][1]))
 	{
-		if (!ft_add_flags(flags, (*av)[i]))
+		if (!ft_add_flags(&(stacks->flags), (*av)[i]))
 		{
 			ft_usage_error(**av[i]);
 			exit(EXIT_FAILURE);
@@ -78,8 +77,8 @@ static	void	ft_get_flags(int *ac, char ***av, int *flags)
 		(*av)++;
 		i--;
 	}
-	if (*flags & FLAG_H)
-		ft_print_help();
+	if (stacks->flags & FLAG_H)
+		ft_print_help(stacks);
 }
 
 int				main(int ac, char **av)
@@ -87,8 +86,7 @@ int				main(int ac, char **av)
 	char	*line;
 	t_stack	stacks;
 
-	stacks.flags = 0;
-	ft_get_flags(&ac, &av, &(stacks.flags));
+	ft_get_flags(&ac, &av, &stacks);
 	ft_init(&stacks, ac, av);
 	while (get_next_line(0, &line) > 0)
 	{
