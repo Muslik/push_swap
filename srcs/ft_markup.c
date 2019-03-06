@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 20:07:16 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 00:56:54 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 13:51:05 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static	void	ft_set_markup(t_stack *stacks, int len, int markup_pos)
 		stacks->f_count++;
 		i++;
 	}
-	while (len)
+	while (len && markup_pos >= 0)
 	{
 		stacks->s_a[markup_pos].stay = 1;
 		stacks->f_count--;

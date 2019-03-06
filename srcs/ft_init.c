@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 14:31:50 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 00:55:47 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 13:14:58 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,10 @@ void		ft_memory_init(t_stack *s, int ac, char **av)
 		exit(EXIT_FAILURE);
 	if (!(s->s_b = (ac == 2) ? (t_el *)malloc(sizeof(t_el) *
 		(ft_word_count(av[1], ' '))) : (t_el *)malloc(sizeof(t_el) * (ac - 1))))
-	{
-		free(s->s_a);
 		exit(EXIT_FAILURE);
-	}
 	if (!(s->sorted = (ac == 2) ? (int *)malloc(sizeof(int) *
 		(ft_word_count(av[1], ' '))) : (int *)malloc(sizeof(int) * (ac - 1))))
-	{
-		free(s->s_a);
-		free(s->s_b);
 		exit(EXIT_FAILURE);
-	}
 }
 
 void	ft_init(t_stack *stacks, int ac, char **av)

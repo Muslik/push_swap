@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 17:24:43 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 01:03:28 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 15:03:15 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,6 @@ void			ft_from_a_to_b(t_stack *stacks)
 {
 	while (stacks->f_count)
 	{
-		if (stacks->size_a == 2)
-		{
-			ft_sort_two(stacks);
-			break;
-		}
-		if (stacks->size_a == 3)
-		{
-			ft_sort_three(stacks);
-			break;
-		}
-		if (stacks->size_a == 5)
-		{
-			ft_sort_five(stacks);
-			break;
-		}
 		if (!ft_check_sa(stacks))
 		{
 			ft_sa(stacks, 0);
