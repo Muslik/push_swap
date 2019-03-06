@@ -6,17 +6,17 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 14:31:50 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 13:14:58 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/06 16:18:01 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_check_splits(t_stack *stacks, char **av, int words)
+int		ft_check_splits(t_stack *stacks, int words, char **av)
 {
-	char	**args;
 	int		i;
 	int		j;
+	char	**args;
 	long	check;
 
 	i = -1;
@@ -25,8 +25,8 @@ int		ft_check_splits(t_stack *stacks, char **av, int words)
 	{
 		j = -1;
 		while (args[i][++j])
-			if ((!ft_isdigit(args[i][j]) && !(args[i][j] == '-' && j == 0
-											  && args[i][j + 1])))
+			if ((!ft_isdigit(args[i][j]) && !(args[i][j] == '-' && j == 0 &&
+							args[i][j + 1])))
 				return (-1);
 		if (j == 0)
 			return (-1);
@@ -35,10 +35,7 @@ int		ft_check_splits(t_stack *stacks, char **av, int words)
 		check = ft_atol(args[i]);
 		if (INT_MAX < check || check < INT_MIN)
 			return (-1);
-		stacks->s_a[i].val = (int)check;
-		stacks->sorted[i] = (int)check;
-		stacks->s_a[i].ind = 0;
-		stacks->s_a[i].stay = 0;
+		ft_init_values(stacks, i, check);
 	}
 	ft_free_darray(args);
 	return (0);
@@ -89,7 +86,7 @@ int		ft_duplicates(t_stack *stacks)
 	return (0);
 }
 
-void		ft_memory_init(t_stack *s, int ac, char **av)
+void	ft_memory_init(t_stack *s, int ac, char **av)
 {
 	if (!(s->s_a = (ac == 2) ? (t_el *)malloc(sizeof(t_el) *
 		(ft_word_count(av[1], ' '))) : (t_el *)malloc(sizeof(t_el) * (ac - 1))))
@@ -104,7 +101,7 @@ void		ft_memory_init(t_stack *s, int ac, char **av)
 
 void	ft_init(t_stack *stacks, int ac, char **av)
 {
-	int words;
+	int		words;
 
 	ft_memory_init(stacks, ac, av);
 	stacks->size_a = (ac == 2) ? ft_word_count(av[1], ' ') : (ac - 1);
@@ -115,24 +112,14 @@ void	ft_init(t_stack *stacks, int ac, char **av)
 	if (ac == 2)
 	{
 		words = ft_word_count(av[1], ' ');
-		if (ft_check_splits(stacks, av, words) || ft_duplicates(stacks) ||
-				stacks->size_a == 0)
+		if (ft_check_splits(stacks, words, av) ||
+				ft_duplicates(stacks) || stacks->size_a == 0)
 			ft_dinit(stacks, 1);
 	}
 	else
-		if (ft_check_args(stacks, ac, av) || ft_duplicates(stacks)
-			|| stacks->size_a == 0)
-			ft_dinit(stacks, 1);
-}
-
-void	ft_dinit(t_stack *stacks, int status)
-{
-	free(stacks->s_a);
-	free(stacks->s_b);
-	free(stacks->sorted);
-	if (status)
 	{
-		ft_args_error(stacks);
-		exit(EXIT_FAILURE);
+		if (ft_check_args(stacks, ac, av) || ft_duplicates(stacks)
+				|| stacks->size_a == 0)
+			ft_dinit(stacks, 1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: suvitiel <suvitiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 02:56:12 by suvitiel          #+#    #+#             */
-/*   Updated: 2019/03/06 03:25:29 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 15:42:27 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static	void	ft_print_stack_operations_color(void)
 	ft_printf("%srrr - Reverse rotate both stacks%s\n", MAGENTA, NC);
 }
 
-static	void	ft_print_help_colors()
+static	void	ft_print_help_colors(void)
 {
 	ft_putendl("\n./checker [OPTIONS] [ARG]...]\n");
 	ft_printf("%sOptions:%s\n", CYAN, NC);
@@ -56,7 +56,7 @@ static	void	ft_print_help_colors()
 	ft_print_stack_operations_color();
 }
 
-void	ft_print_help(t_stack *stacks)
+void			ft_print_help(t_stack *stacks)
 {
 	if (stacks->flags & FLAG_C)
 		ft_print_help_colors();

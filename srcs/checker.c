@@ -6,12 +6,11 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:54:19 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 03:23:21 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 15:43:22 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 static	int		ft_handle(t_stack *stacks, char *line)
 {
@@ -42,7 +41,7 @@ static	int		ft_handle(t_stack *stacks, char *line)
 	return (0);
 }
 
-static int		ft_add_flags(int *flags, char *str)
+static	int		ft_add_flags(int *flags, char *str)
 {
 	int bit;
 

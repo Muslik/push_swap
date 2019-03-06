@@ -6,7 +6,7 @@
 /*   By: suvitiel <suvitiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 01:00:27 by suvitiel          #+#    #+#             */
-/*   Updated: 2019/03/06 15:22:53 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/06 15:49:04 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,31 @@ void	ft_sort_two(t_stack *stacks)
 
 void	ft_sort_three(t_stack *s)
 {
-    if (s->s_a[0].val < s->s_a[1].val &&
-		s->s_a[1].val < s->s_a[2].val)
-        return ;
-    if (s->s_a[0].val > s->s_a[1].val &&
-		s->s_a[1].val > s->s_a[2].val)
-    {
-        ft_sa(s, 1);
-        ft_rra(s, 1);
-    }
-    else if (s->s_a[0].val < s->s_a[1].val &&
-			 s->s_a[1].val > s->s_a[2].val &&
-			 s->s_a[0].val < s->s_a[2].val)
-    {
-        ft_sa(s, 1);
-        ft_ra(s, 1);
-    }
-    else if (s->s_a[0].val > s->s_a[1].val &&
-			 s->s_a[1].val < s->s_a[2].val &&
-			 s->s_a[0].val < s->s_a[2].val)
-        ft_sa(s, 1);
-    else if (s->s_a[0].val < s->s_a[1].val && s->s_a[1].val > s->s_a[2].val &&
-			 s->s_a[0].val > s->s_a[2].val)
-        ft_rra(s, 1);
-    else
-        ft_ra(s, 1);
+	if (s->s_a[0].val < s->s_a[1].val &&
+			s->s_a[1].val < s->s_a[2].val)
+		return ;
+	if (s->s_a[0].val > s->s_a[1].val &&
+			s->s_a[1].val > s->s_a[2].val)
+	{
+		ft_sa(s, 1);
+		ft_rra(s, 1);
+	}
+	else if (s->s_a[0].val < s->s_a[1].val &&
+			s->s_a[1].val > s->s_a[2].val &&
+			s->s_a[0].val < s->s_a[2].val)
+	{
+		ft_sa(s, 1);
+		ft_ra(s, 1);
+	}
+	else if (s->s_a[0].val > s->s_a[1].val &&
+			s->s_a[1].val < s->s_a[2].val &&
+			s->s_a[0].val < s->s_a[2].val)
+		ft_sa(s, 1);
+	else if (s->s_a[0].val < s->s_a[1].val && s->s_a[1].val > s->s_a[2].val &&
+			s->s_a[0].val > s->s_a[2].val)
+		ft_rra(s, 1);
+	else
+		ft_ra(s, 1);
 }
 
 void	ft_sort_five(t_stack *s)
@@ -74,5 +74,4 @@ void	ft_sort_five(t_stack *s)
 			i++;
 	}
 	ft_sort_three(s);
-	ft_from_b_to_a(s);
 }

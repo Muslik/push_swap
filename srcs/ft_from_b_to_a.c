@@ -6,7 +6,7 @@
 /*   By: suvitiel <suvitiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 21:56:05 by suvitiel          #+#    #+#             */
-/*   Updated: 2019/03/06 01:04:01 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 16:03:06 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,38 +87,44 @@ static	void	ft_get_best_to_move(t_stack *s)
 	s->move_b = s->s_b[curr_pos].move_b;
 }
 
-void			ft_from_b_to_a(t_stack *stacks)
+static	void	ft_prepare_stacks(t_stack *stacks, int common)
 {
 	int i;
+
+	i = -1;
+	if (stacks->dir_a)
+		while (++i < common)
+			ft_rr(stacks, 1);
+	else
+		while (++i < common)
+			ft_rrr(stacks, 1);
+	i = -1;
+	if (stacks->dir_a)
+		while (++i < stacks->move_a - common)
+			ft_ra(stacks, 1);
+	else
+		while (++i < stacks->move_a - common)
+			ft_rra(stacks, 1);
+	i = -1;
+	if (stacks->dir_b)
+		while (++i < stacks->move_b - common)
+			ft_rb(stacks, 1);
+	else
+		while (++i < stacks->move_b - common)
+			ft_rrb(stacks, 1);
+	ft_pa(stacks, 1);
+}
+
+void			ft_from_b_to_a(t_stack *stacks)
+{
 	int common;
 
 	while (stacks->size_b)
 	{
 		ft_get_best_to_move(stacks);
-		i = -1;
 		common = 0;
 		if (stacks->dir_a == stacks->dir_b)
 			common = ft_min(stacks->move_a, stacks->move_b);
-		if (stacks->dir_a)
-			while (++i < common)
-				ft_rr(stacks, 1);
-		else
-			while (++i < common)
-				ft_rrr(stacks, 1);
-		i = -1;
-		if (stacks->dir_a)
-			while (++i < stacks->move_a - common)
-				ft_ra(stacks, 1);
-		else
-			while (++i < stacks->move_a - common)
-				ft_rra(stacks, 1);
-		i = -1;
-		if (stacks->dir_b)
-			while (++i < stacks->move_b - common)
-				ft_rb(stacks, 1);
-		else
-			while (++i < stacks->move_b - common)
-				ft_rrb(stacks, 1);
-		ft_pa(stacks, 1);
+		ft_prepare_stacks(stacks, common);
 	}
 }

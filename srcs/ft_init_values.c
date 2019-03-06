@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_spaces.c                                  :+:      :+:    :+:   */
+/*   ft_init_values.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suvitiel <suvitiel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hkuphal <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/06 02:27:05 by suvitiel          #+#    #+#             */
-/*   Updated: 2019/03/06 15:39:42 by hkuphal          ###   ########.fr       */
+/*   Created: 2019/03/06 16:18:11 by hkuphal           #+#    #+#             */
+/*   Updated: 2019/03/06 16:18:46 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "ft_printf.h"
+#include "push_swap.h"
 
-void	ft_print_spaces(int count)
+void	ft_init_values(t_stack *stacks, int i, int check)
 {
-	while (count--)
-		ft_printf(" ");
+	stacks->sorted[i] = (int)check;
+	stacks->s_a[i].val = (int)check;
+	stacks->s_a[i].ind = 0;
+	stacks->s_a[i].stay = 0;
 }

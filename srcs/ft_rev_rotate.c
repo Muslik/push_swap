@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 21:18:11 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 02:05:39 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 15:52:14 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_rra(t_stack *stacks, int print)
 {
-	int i;
-	t_el tmp;
+	int		i;
+	t_el	tmp;
 
 	if (stacks->size_a <= 1)
 		return ;
@@ -26,14 +26,14 @@ void	ft_rra(t_stack *stacks, int print)
 	stacks->s_a[0] = tmp;
 	if (print != 0 && print != -1)
 		ft_putendl("rra");
-	else if (print != -1  && stacks->flags & FLAG_V)
+	else if (print != -1 && stacks->flags & FLAG_V)
 		ft_printer(stacks, "rra");
 }
 
 void	ft_rrb(t_stack *stacks, int print)
 {
-	int i;
-	t_el tmp;
+	int		i;
+	t_el	tmp;
 
 	if (stacks->size_b <= 1)
 		return ;
@@ -44,7 +44,7 @@ void	ft_rrb(t_stack *stacks, int print)
 	stacks->s_b[0] = tmp;
 	if (print != 0 && print != -1)
 		ft_putendl("rrb");
-	else if (print != -1  && stacks->flags & FLAG_V)
+	else if (print != -1 && stacks->flags & FLAG_V)
 		ft_printer(stacks, "rrb");
 }
 

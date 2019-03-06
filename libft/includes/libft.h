@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:28:05 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 02:28:23 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 15:38:56 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
-
 
 /*
 ** COLORS
@@ -53,17 +52,17 @@ typedef struct		s_stk
 	struct s_stk	*next;
 }					t_stk;
 
-typedef	union	u_double
+typedef	union		u_double
 {
 	double			d;
 	unsigned long	data;
-}				t_double;
+}					t_double;
 
-typedef	union	u_ldouble
+typedef	union		u_ldouble
 {
 	long double		d;
 	unsigned long	data[2];
-}				t_ldouble;
+}					t_ldouble;
 
 /*
 ** TREE
@@ -153,7 +152,7 @@ char				*ft_itoa_base(long value, int base, int i);
 ** BITS
 */
 
-unsigned int	ft_reverse_bits(unsigned int octet);
+unsigned int		ft_reverse_bits(unsigned int octet);
 
 /*
 ** STRING

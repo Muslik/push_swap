@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 20:07:16 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 13:51:05 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/06 16:10:35 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,34 +33,31 @@ static	void	ft_set_markup(t_stack *stacks, int len, int markup_pos)
 	}
 }
 
-void			ft_markup(t_stack *stacks)
+void			ft_markup(t_stack *s)
 {
 	int i;
 	int markup_pos;
-	int markup_len;
+	int m;
 	int index_start;
 
 	i = -1;
+	m = 1;
 	markup_pos = 0;
-	markup_len = 1;
-	index_start = stacks->s_a[0].ind;
-	while (++i < stacks->size_a)
+	index_start = s->s_a[0].ind;
+	while (++i < s->size_a)
 	{
-		if (i == stacks->size_a - 1 ||
-			stacks->s_a[i].val > stacks->s_a[i + 1].val)
+		if (i == s->size_a - 1 || s->s_a[i].val > s->s_a[i + 1].val)
 		{
-			if (stacks->t_count < markup_len ||
-				(stacks->t_count == markup_len &&
-				 stacks->s_a[i - markup_len + 1].ind < index_start))
+			if (T_C < m || (T_C == m && s->s_a[i - m + 1].ind < index_start))
 			{
 				markup_pos = i;
-				stacks->t_count = markup_len;
-				index_start = stacks->s_a[i - markup_len + 1].ind;
+				T_C = m;
+				index_start = s->s_a[i - m + 1].ind;
 			}
-			markup_len = 1;
+			m = 1;
 		}
 		else
-			markup_len++;
+			m++;
 	}
-	ft_set_markup(stacks, stacks->t_count, markup_pos);
+	ft_set_markup(s, T_C, markup_pos);
 }

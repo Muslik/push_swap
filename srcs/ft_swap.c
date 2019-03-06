@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 18:52:22 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 03:17:51 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 15:49:53 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_sa(t_stack *stacks, int print)
 	stacks->s_a[1] = temp;
 	if (print != 0 && print != -1)
 		ft_putendl("sa");
-	else if (print != -1  && stacks->flags & FLAG_V)
+	else if (print != -1 && stacks->flags & FLAG_V)
 		ft_printer(stacks, "sa");
 }
 
@@ -38,7 +38,7 @@ void	ft_sb(t_stack *stacks, int print)
 	stacks->s_b[1] = temp;
 	if (print != 0 && print != -1)
 		ft_putendl("sb");
-	else if (print != -1  && stacks->flags & FLAG_V)
+	else if (print != -1 && stacks->flags & FLAG_V)
 		ft_printer(stacks, "sb");
 }
 

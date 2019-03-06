@@ -6,11 +6,11 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 17:40:20 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/02/26 17:40:41 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/06 15:40:06 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
 	int tmp_a;
 

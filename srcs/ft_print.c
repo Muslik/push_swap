@@ -6,7 +6,7 @@
 /*   By: Dzhab <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 01:14:59 by Dzhab             #+#    #+#             */
-/*   Updated: 2019/03/06 15:35:19 by dmorgil          ###   ########.fr       */
+/*   Updated: 2019/03/06 15:51:38 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static	void	ft_handle_ac(char *op, int i, t_stack *stacks)
 				(ft_strcmp(op, "pa") == 0)) && i == 0)
 		ft_printf("%s%11d%s", RED, stacks->s_a[i].val, NC);
 	else if (((ft_strcmp(op, "sa") == 0 ||
-			   ft_strcmp(op, "ss") == 0) && (i == 0 || i == 1)))
+			ft_strcmp(op, "ss") == 0) && (i == 0 || i == 1)))
 		ft_printf("%s%11d%s", YELLOW, stacks->s_a[i].val, NC);
 	else if (((ft_strcmp(op, "ra") == 0) || (ft_strcmp(op, "rr") == 0)))
 		ft_printf("%s%11d%s", BLUE, stacks->s_a[i].val, NC);
@@ -35,7 +35,7 @@ static	void	ft_handle_bc(char *op, int i, t_stack *stacks)
 	if (((ft_strcmp(op, "pb") == 0) || (ft_strcmp(op, "pa") == 0)) && i == 0)
 		ft_printf("%s%11d%s\n", RED, stacks->s_b[i].val, NC);
 	else if (((ft_strcmp(op, "sb") == 0 ||
-			   ft_strcmp(op, "ss") == 0) && (i == 0 || i == 1)))
+			ft_strcmp(op, "ss") == 0) && (i == 0 || i == 1)))
 		ft_printf("%s%11d%s\n", YELLOW, stacks->s_b[i].val, NC);
 	else if (((ft_strcmp(op, "rb") == 0) || (ft_strcmp(op, "rr") == 0)))
 		ft_printf("%s%11d%s\n", BLUE, stacks->s_b[i].val, NC);

@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:17:08 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 02:39:00 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 16:19:24 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 # include <limits.h>
-# include <stdio.h>
 
 # define FLAG_C 1
 # define FLAG_H 2
 # define FLAG_V 4
+# define T_C s->t_count
 
 typedef struct	s_el
 {
-	int 		val;
+	int			val;
 	int			ind;
 	int			stay;
 	int			dir_a;
@@ -56,7 +56,8 @@ void			ft_usage_error(char c);
 void			ft_print_help(t_stack *stack);
 void			ft_args_error(t_stack *stacks);
 void			ft_init(t_stack *stacks, int ac, char **av);
-void			ft_dinit(t_stack *stacks, int only_stacks);
+void			ft_dinit(t_stack *stacks, int status);
+void			ft_init_values(t_stack *stacks, int i, int check);
 void			ft_sa(t_stack *stacks, int flags);
 void			ft_sb(t_stack *stacks, int flags);
 void			ft_ss(t_stack *stacks, int flags);
@@ -78,11 +79,4 @@ void			ft_align_a(t_stack *stacks);
 void			ft_sort_two(t_stack *s);
 void			ft_sort_three(t_stack *s);
 void			ft_sort_five(t_stack *s);
-
-
-
-
-
-
-
 #endif

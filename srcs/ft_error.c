@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 20:43:51 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 02:55:59 by suvitiel         ###   ########.fr       */
+/*   Updated: 2019/03/06 15:42:02 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,3 @@ void	ft_args_error(t_stack *stacks)
 		ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
-

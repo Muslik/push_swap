@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_spaces.c                                  :+:      :+:    :+:   */
+/*   ft_dinit.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suvitiel <suvitiel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/06 02:27:05 by suvitiel          #+#    #+#             */
-/*   Updated: 2019/03/06 15:39:42 by hkuphal          ###   ########.fr       */
+/*   Created: 2019/03/06 15:44:15 by dmorgil           #+#    #+#             */
+/*   Updated: 2019/03/06 15:44:36 by hkuphal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "ft_printf.h"
+#include "push_swap.h"
 
-void	ft_print_spaces(int count)
+void	ft_dinit(t_stack *stacks, int status)
 {
-	while (count--)
-		ft_printf(" ");
+	free(stacks->s_a);
+	free(stacks->s_b);
+	free(stacks->sorted);
+	if (status)
+	{
+		ft_args_error(stacks);
+		exit(EXIT_FAILURE);
+	}
 }
