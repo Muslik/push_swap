@@ -6,7 +6,7 @@
 /*   By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 14:31:50 by dmorgil           #+#    #+#             */
-/*   Updated: 2019/03/06 16:18:01 by hkuphal          ###   ########.fr       */
+/*   Updated: 2019/06/02 17:42:04 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,11 @@ void	ft_init(t_stack *stacks, int ac, char **av)
 	}
 	else
 	{
-		if (ft_check_args(stacks, ac, av) || ft_duplicates(stacks)
-				|| stacks->size_a == 0)
+		if (ft_check_args(stacks, ac, av) || ft_duplicates(stacks))
 			ft_dinit(stacks, 1);
+		else if (stacks->size_a == 0) {
+			ft_dinit(stacks, 0);
+			exit(EXIT_FAILURE);
+		}
 	}
 }

@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: suvitiel <suvitiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/06 01:00:27 by suvitiel          #+#    #+#             */
-/*   Updated: 2019/03/06 15:49:04 by hkuphal          ###   ########.fr       */
+/*   Created: 2019/03/06 01:00:27 by dmorgil           #+#    #+#             */
+/*   Updated: 2019/06/02 17:23:58 by dmorgil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_two(t_stack *stacks)
+void		ft_sort_two(t_stack *stacks)
 {
 	if (!ft_issorted(stacks))
 		ft_sa(stacks, 1);
 }
 
-void	ft_sort_three(t_stack *s)
+void		ft_sort_three(t_stack *s)
 {
 	if (s->s_a[0].val < s->s_a[1].val &&
 			s->s_a[1].val < s->s_a[2].val)
@@ -47,7 +47,7 @@ void	ft_sort_three(t_stack *s)
 		ft_ra(s, 1);
 }
 
-void	ft_sort_five(t_stack *s)
+static void	ft_sorting(t_stack *s)
 {
 	int i;
 	int tmp;
@@ -74,4 +74,10 @@ void	ft_sort_five(t_stack *s)
 			i++;
 	}
 	ft_sort_three(s);
+}
+
+void		ft_sort_five(t_stack *s)
+{
+	if (!ft_issorted(s))
+		ft_sorting(s);
 }

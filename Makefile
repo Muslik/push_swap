@@ -6,7 +6,7 @@
 #    By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 17:38:22 by dmorgil           #+#    #+#              #
-#    Updated: 2019/03/06 16:19:19 by hkuphal          ###   ########.fr        #
+#    Updated: 2019/03/24 19:17:36 by dmorgil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ _CHECKER_FS	=	checker.c ft_error.c ft_init.c ft_swap.c ft_push.c ft_rotate.c\
 
 MAIN_FS		=	$(addprefix $(SRCD)/,$(_MAIN_FS))
 MAIN_O		=	$(_MAIN_FS:.c=.o)
+
 CHECKER_FS	=	$(addprefix $(SRCD)/,$(_CHECKER_FS))
 CHECKER_O	=	$(_CHECKER_FS:.c=.o)
 

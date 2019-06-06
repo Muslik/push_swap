@@ -6,7 +6,7 @@
 #    By: dmorgil <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 17:38:22 by dmorgil           #+#    #+#              #
-#    Updated: 2019/03/06 02:28:40 by suvitiel         ###   ########.fr        #
+#    Updated: 2019/03/09 17:29:05 by dmorgil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #
@@ -37,7 +37,8 @@ _TYPES_FS		=	ft_atoi.c ft_isblank.c ft_islower.c ft_isspace.c ft_isupper.c \
 					ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c \
 					ft_atol.c ft_min.c ft_max.c ft_itoa_base.c ft_itoa_bin.c \
 					ft_itoa_double.c ft_itoa_ldouble.c ft_itoa_pointer.c ft_itoa_roundd.c\
-					ft_itoa_u.c
+					ft_itoa_u.c ft_strisnumeric.c ft_strislowercase.c \
+					ft_strisalpha.c
 
 _LIST_FS		=	ft_lstiter.c ft_lstmap.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 					ft_lstnew.c
@@ -49,12 +50,12 @@ _BTREE_FS		=	ft_create_node.c ft_delete_node.c ft_insert_data.c \
 _STR_FS			=	ft_strnstr.c ft_strcmp.c ft_strncmp.c ft_strnew.c ft_strdel.c \
 					ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c \
 					ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c \
-					ft_strsplit.c ft_strisnumeric.c ft_strislowercase.c \
-					ft_strisalpha.c ft_strlowcase.c ft_strupcase.c ft_strlen.c \
+					ft_strsplit.c ft_strlen.c \
 					ft_strjoin_free.c ft_strjoinc_free.c ft_strdup.c ft_strcpy.c \
 					ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c \
 					ft_strchr.c ft_strrchr.c ft_strstr.c ft_strchr_by_index.c\
-					ft_word_count.c ft_count_words.c ft_strlen_chr.c
+					ft_word_count.c ft_count_words.c ft_strlen_chr.c \
+					ft_strupcase.c ft_strlowcase.c
 
 _STACK_FS		=	ft_free_stack.c ft_pop_stack.c ft_print_stack.c ft_stack_isempty.c \
 					ft_push_stack.c
